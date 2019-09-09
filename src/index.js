@@ -1,4 +1,5 @@
-// import Usuario from './Usuario'
+import '../src/style/template.css';
+// import Usuario from './Usuario';
 var usuariooo=[];
 document.getElementById("btnIngresar").addEventListener('click',function(){
     var user= document.getElementById("exampleInputEmail1").value;

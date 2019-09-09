@@ -1,0 +1,92 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family:  Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.navbar-brand {
+    font-size: 25px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+}
+
+nav .navbar-collapse {
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.login-btn {
+    background: linear-gradient(to right, #2c3e50, #2980b9);
+    border-radius: 20px;
+    /* width: 100%; */
+    height: 50%;
+    font-weight: 300;
+}
+
+.box-1 {
+    /* height: 150px; */
+}
+
+.carousel-page {
+    height: 550px;
+    overflow: hidden;
+}
+
+.carousel-caption{
+    font-size: 40px;
+    color: black;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 500;
+    background-color: #ffffffb9;
+    border-radius: 15px;
+}
+.box-2 h2{
+    color: #2c3e50;
+}
+
+.box-3{
+    color: #ffffff;
+    font-weight: 500;
+    background:linear-gradient(to bottom, #2c3e50a8, #297fb99f);;
+    border-radius: 18px; 
+}
+
+.box-3 h2{
+    font-size: 2.7rem;
+}
+
+.box-3 p{
+    font-size: 1.3rem;
+}
+
+.box-4 {
+    /* height: 50px; */
+}
+
+.btn-info {
+    height: 40px;
+    width: 150px;
+    line-height: 15px;
+    background: linear-gradient(to bottom, #2c3e50, #2980b9);
+    /* margin: auto; */
+}
+
+.form-control textarea {
+    width: 400px;
+    height: 100px;
+}
+
+.input-contacto {
+    font-weight: 500;
+    background: #dad9d9;
+    border-bottom: 5px solid #2980b9;
+    border-radius: 5px;
+}
+
+.input-contacto:active {
+    box-shadow: none;
+}
+
+footer {
+    background: linear-gradient(to bottom, #2c3e50, #2980b9);
+}

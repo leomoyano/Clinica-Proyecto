@@ -28,7 +28,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
 	mode: 'development',
 	entry: {
-		index: './src/index.js'
+		index: './src/index.js',
+		register: './src/register.js'
 	},
 
 	output: {
@@ -44,14 +45,14 @@ module.exports = {
 		  template: './src/index.html',
 		  chunks : ['index'],
 		  filename: 'index.html'
-		})
-		// new HtmlWebpackPlugin({
-		// 	title: 'Custom template',
-		// 	// Load a custom template (lodash by default)
-		// 	template: './src/usuario.html',
-		// 	chunks : ['usuario'],
-		// 	filename: 'usuario.html'
-		//   })
+		}),
+		new HtmlWebpackPlugin({
+			title: 'Register',
+			// Load a custom template (lodash by default)
+			template: './src/register.html',
+			chunks : ['register'],
+			filename: 'register.html'
+		  })
       ],
 
 	module: {
@@ -73,7 +74,14 @@ module.exports = {
 						]
 					]
 				}
-			}
+			},
+			{                
+				test: [/.css$/],                
+				use:[                    
+				 'style-loader',                  
+				 'css-loader'
+				]            
+			  }
 		]
 	},
 
