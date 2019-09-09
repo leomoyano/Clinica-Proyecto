@@ -15,6 +15,7 @@ const webpack = require('webpack');
  */
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 /*
  * We've enabled HtmlWebpackPlugin for you! This generates a html
@@ -38,6 +39,7 @@ module.exports = {
 	},
 
 	plugins: [
+		new CopyWebpackPlugin([{     from:'./src/assets/images',      to:'assets/images'   }]),
 		new webpack.ProgressPlugin(),
         new HtmlWebpackPlugin({
           title: 'index',
@@ -81,7 +83,19 @@ module.exports = {
 				 'style-loader',                  
 				 'css-loader'
 				]            
-			  }
+			},
+			{
+				test: /\.(png|jpg|gif|svg)$/,
+				use: [
+				  {
+					loader: 'file-loader',
+					options: {
+					  name: '[name].[ext]',
+					  outputPath: 'assets/images'
+					}
+				  }
+				]
+			}
 		]
 	},
 
