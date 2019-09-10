@@ -28,7 +28,7 @@ nav .navbar-collapse {
 }
 
 .carousel-page {
-    height: 550px;
+    /* height: 550px; */
     overflow: hidden;
 }
 
@@ -42,6 +42,13 @@ nav .navbar-collapse {
 }
 .box-2 h2{
     color: #2c3e50;
+    font-weight: bold;
+}
+
+.box-2 label {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #2980b9;
 }
 
 .box-3{
@@ -59,8 +66,8 @@ nav .navbar-collapse {
     font-size: 1.3rem;
 }
 
-.box-4 {
-    /* height: 50px; */
+.box-4 h2{
+    font-weight: bold;
 }
 
 .btn-info {
