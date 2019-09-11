@@ -6,9 +6,6 @@ var username = document.getElementById('username');
 var password = document.getElementById('password');
 
 username.addEventListener('blur', function(){
-    /*if(username.value === undefined){
-        username.setAttribute("class", "form-control");
-    }*/
     if(Client.searchUsername(username.value)){
         username.setAttribute("class", "form-control is-invalid");
         alert("Ya existe ese nombre de usuario");
@@ -19,6 +16,7 @@ username.addEventListener('blur', function(){
         username.setAttribute("class", "form-control is-invalid");
     }
     else username.setAttribute("class", "form-control is-valid");
+    if(username.value === '') username.setAttribute("class", "form-control");
 });
 
 password.addEventListener('blur', function(){
@@ -29,6 +27,7 @@ password.addEventListener('blur', function(){
         return;
     }
     else alert("La contraseña esta bien escrita");
+    if(password.value === '') password.setAttribute("class", "form-control");
 });
 
 register.addEventListener('click', function () {
@@ -47,5 +46,5 @@ register.addEventListener('click', function () {
         phone: document.getElementById('phone').value
     });
     client.Register();
-    //location.href ="http://www.google.com"; Redireccionar a la pagina principal
+    location.href ="index.html"; //Redireccionar a la pagina principal
 });
