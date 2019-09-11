@@ -1,3 +1,4 @@
+import '../src/style/template.css';
 import Client from './Client'
 
 let register = document.getElementById('register');
