@@ -4,38 +4,55 @@ import Client from './Client'
 let register = document.getElementById('register');
 var username = document.getElementById('username');
 var password = document.getElementById('password');
+var phone = document.getElementById('phone');
 
-username.addEventListener('blur', function(){
-    if(Client.searchUsername(username.value)){
+phone.addEventListener('blur', function () {
+    let number = phone.value;
+    if (number[0] != '+') {
+        phone.value = '';
+        return;
+    }
+    else {
+        for (var i = 1; i < number.length; i++) {
+            console.log(isNaN(number[i]));
+            if (isNaN(number[i])) {
+                phone.value = '';
+                return;
+            }
+        }
+    }
+});
+
+username.addEventListener('blur', function () {
+    if (Client.searchUsername(username.value)) {
         username.setAttribute("class", "form-control is-invalid");
         alert("Ya existe ese nombre de usuario");
         return;
     }
     else username.setAttribute("class", "form-control is-valid");
-    if(!Client.validUsername(username.value)){
+    if (!Client.validUsername(username.value)) {
         username.setAttribute("class", "form-control is-invalid");
     }
     else username.setAttribute("class", "form-control is-valid");
-    if(username.value === '') username.setAttribute("class", "form-control");
+    if (username.value === '') username.setAttribute("class", "form-control");
 });
 
-password.addEventListener('blur', function(){
+password.addEventListener('blur', function () {
     /* Verifico que se ingrese la contraseña con las especificaciones dadas */
-    if(Client.validPassword(password.value)){
+    if (Client.validPassword(password.value)) {
         document.getElementById('password').value = '';
-        console.log("la contraseña debe contener de 4 a 16 caracteres");
+        //console.log("la contraseña debe contener de 4 a 16 caracteres");
         return;
     }
-    else alert("La contraseña esta bien escrita");
-    if(password.value === '') password.setAttribute("class", "form-control");
+    else //alert("La contraseña esta bien escrita");
+        if (password.value === '') password.setAttribute("class", "form-control");
 });
 
 register.addEventListener('click', function () {
     let client = new Client({
         firstName: document.getElementById('firstName').value.toLowerCase(),
         lastName: document.getElementById('lastName').value.toLowerCase(),
-        male: document.getElementById('male').checked,
-        female: document.getElementById('female').checked,
+        sex: document.getElementById('sex').value,
         age: document.getElementById('age').value,
         email: document.getElementById('email').value.toLowerCase(),
         address: document.getElementById('address').value.toLowerCase(),
@@ -45,6 +62,7 @@ register.addEventListener('click', function () {
         widowed: document.getElementById('widowed').checked,
         phone: document.getElementById('phone').value
     });
+    //if(phone.value === '') return;
     client.Register();
-    location.href ="index.html"; //Redireccionar a la pagina principal
+    location.href = "index.html"; //Redireccionar a la pagina principal
 });
