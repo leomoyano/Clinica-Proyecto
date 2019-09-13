@@ -8,6 +8,10 @@ var phone = document.getElementById('phone');
 
 phone.addEventListener('blur', function () {
     let number = phone.value;
+    if(number.length < 14) {
+        phone.value = '';
+        return;
+    }
     if (number[0] != '+') {
         phone.value = '';
         return;
@@ -53,16 +57,13 @@ register.addEventListener('click', function () {
         firstName: document.getElementById('firstName').value.toLowerCase(),
         lastName: document.getElementById('lastName').value.toLowerCase(),
         sex: document.getElementById('sex').value,
-        age: document.getElementById('age').value,
+        birthdate: document.getElementById('birthdate').value,
         email: document.getElementById('email').value.toLowerCase(),
         address: document.getElementById('address').value.toLowerCase(),
-        married: document.getElementById('married').checked,
-        single: document.getElementById('single').checked,
-        divorced: document.getElementById('divorced').checked,
-        widowed: document.getElementById('widowed').checked,
-        phone: document.getElementById('phone').value
+        martialStatus: document.getElementById('martialStatus').value,
+        phone: phone.value
     });
-    //if(phone.value === '') return;
-    client.Register();
+    event.preventDefault();
+    client.register();
     location.href = "index.html"; //Redireccionar a la pagina principal
 });
