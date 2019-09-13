@@ -13,7 +13,7 @@ export default class Client {
     }
 
 
-    Register(){
+    register(){
         let clients = Client.getAll();
         clients.push(this.props);
         Client.setAll(clients);
