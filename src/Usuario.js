@@ -30,7 +30,7 @@ export default class Usuario{
         if (matchuser === undefined)
         {
             console.log("Usuario no encontrado");
-            
+            document.getElementById("exampleInputEmail1").setAttribute("class", "form-control is-invalid");
         }
         else{
             console.log();
