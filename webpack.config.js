@@ -54,6 +54,13 @@ module.exports = {
 			template: './src/register.html',
 			chunks : ['register'],
 			filename: 'register.html'
+		  }),
+		  new HtmlWebpackPlugin({
+			title: 'recuperarcontraseña',
+			// Load a custom template (lodash by default)
+			template: './src/recuperarcontraseña.html',
+			chunks : ['recuperarcontraseña'],
+			filename: 'recuperarcontraseña.html'
 		  })
       ],
 
