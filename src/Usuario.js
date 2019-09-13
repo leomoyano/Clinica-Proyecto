@@ -30,6 +30,7 @@ export default class Usuario{
         if (matchuser === undefined)
         {
             console.log("Usuario no encontrado");
+            
         }
         else{
             console.log();
@@ -37,10 +38,10 @@ export default class Usuario{
             {
                 console.log("Ingreso correctamente");
                 location.href = "index.html";
-                alert("Contraseña correcta.");
             }
             else{
                 console.log("Contraseña Incorrecta");
+                document.getElementById("exampleInputEmail1").setAttribute("class", "form-control is-invalid");
             }
         }
 
