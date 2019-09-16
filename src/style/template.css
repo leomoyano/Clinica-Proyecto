@@ -19,9 +19,18 @@ nav .navbar-collapse {
 .login-btn {
     background: linear-gradient(to right, #2c3e50, #2980b9);
     border-radius: 20px;
-    /* width: 100%; */
     height: 50%;
     font-weight: 300;
+}
+
+.login-btn a:hover{
+    text-decoration: none;
+}
+
+.login-btn:hover{
+    /* background: linear-gradient(to right, #2980b9,#2c3e50); */
+    background: linear-gradient(to bottom, #2c3e50,#2980b9);
+    transition-duration: 1s;
 }
 
 .box-1 {
