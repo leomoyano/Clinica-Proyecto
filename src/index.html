@@ -18,28 +18,27 @@
     <div class="col-2">
       <a class="navbar-brand" href="index.html">RollingClinic</a>
     </div>
-
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
       aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="col-9">
-      <div class="justify-content-end align-items-center d-none d-lg-flex">
-        <div class="collapse navbar-collapse justify-content-end ml-5" id="navbarNavAltMarkup">
-          <div class="navbar-nav align-items-center">
-            <a class="nav-item nav-link mx-3" href="#especialidad">Especialidad</a>
-            <a class="nav-item nav-link mx-3" href="#servicios">Servicios</a>
-            <a class="nav-item nav-link mx-3" href="#sobreNosotros">Sobre Nosotros</a>
-            <a class="nav-item nav-link mx-3" href="#contactos">Contacto</a>
-          </div>
+    <div class="col-lg-9">
+      <div class="collapse navbar-collapse justify-content-end ml-5" id="navbarNavAltMarkup">
+        <div class="navbar-nav align-items-center">
+          <a class="nav-item nav-link mx-3" href="#especialidad">Especialidad</a>
+          <a class="nav-item nav-link mx-3" href="#servicios">Servicios</a>
+          <a class="nav-item nav-link mx-3" href="#sobreNosotros">Sobre Nosotros</a>
+          <a class="nav-item nav-link mx-3" href="#contactos">Contacto</a>
         </div>
+      </div>
+    </div>
+      <div class="justify-content-center align-items-center d-none d-lg-flex">
         <button type="button" class="btn login-btn">
           <a class="text-light font-weight-bold" href="#" data-toggle="modal" data-target="#exampleModal">Turnos</a>
         </button>
       </div>
-    </div>
-
   </nav>
+
   <div class="container-fluid">
     <div>
       <div class="box-1 my-3 " class="d-block">
@@ -119,7 +118,7 @@
           </div>
         </div>
       </div>
-      <div class="box-3 text-center p-2 my-4 mx-5" data-aos="fade-left"  data-aos-duration="3000">
+      <div class="box-3 text-center p-2 my-4 mx-5" data-aos="fade-left" data-aos-duration="3000">
         <h2 class="p-3" id="sobreNosotros">Sobre Nosotros</h2>
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus, odio maxime. Numquam voluptatum optio
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit distinctio ducimus repellat error nobis eaque
@@ -129,7 +128,7 @@
           velit animi distinctio.</p>
         <button class="btn btn-info m-3">Mostrar más</button>
       </div>
-      <div class="box-4 my-5 mx-5" data-aos="zoom-in-down"  data-aos-duration="3000">
+      <div class="box-4 my-5 mx-5" data-aos="zoom-in-down" data-aos-duration="3000">
         <div class="col-12 text-center p-3">
           <h2 id="contactos">Contactos</h2>
           <p>Envíenos su inquietud. A la brevedad nos comunicaremos con usted.</p>
@@ -216,28 +215,30 @@
           </button>
         </div>
         <div class="modal-body">
-<!-- <<<<<<< HEAD -->
-            <form>
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Usuario</label>
-                  <input type="email" class="form-control mb-2" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresa tu email">
-                </div>
-                  <div class="invalid-feedback">
-                    Los datos ingresados son incorrectos.
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword1">Contraseña</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder=" Ingresa tu Contraseña">
-                </div>
-                <a class="" href="register.html" style="font-size:14px">No tenes cuenta? Registrate acá</a>
-                <br>
-                <a class="" href="recuperarcontraseña.html" style="font-size:14px">Perdiste la contraseña?</a>
-                <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
-              </form>
+          <!-- <<<<<<< HEAD -->
+          <form>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Usuario</label>
+              <input type="email" class="form-control mb-2" id="exampleInputEmail1" aria-describedby="emailHelp"
+                placeholder="Ingresa tu email">
+            </div>
+            <div class="invalid-feedback">
+              Los datos ingresados son incorrectos.
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Contraseña</label>
+              <input type="password" class="form-control" id="exampleInputPassword1"
+                placeholder=" Ingresa tu Contraseña">
+            </div>
+            <a class="" href="register.html" style="font-size:14px">No tenes cuenta? Registrate acá</a>
+            <br>
+            <a class="" href="recuperarcontraseña.html" style="font-size:14px">Perdiste la contraseña?</a>
+            <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+          </form>
 
         </div>
         <div class="modal-footer">
-          <button type="button submit" class="btn btn-primary"id="btnIngresar">Ingresar</button>
+          <button type="button submit" class="btn btn-primary" id="btnIngresar">Ingresar</button>
         </div>
       </div>
     </div>
@@ -254,10 +255,10 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-      AOS.init();
-    </script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 </body>
 
 </html>
