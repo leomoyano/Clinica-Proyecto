@@ -33,8 +33,8 @@ export default class Client {
 
     /* Devuelve true si se encontro un usuario con el mismo nombre del que se quiere ingresar */
     static searchUsername(username){
-        let users = this.getAll(); //Traer del local storage los usuarios administrados por el negro
-        const match = users.find(user => user.firstName === username); //cambiar el firstname con username una vez que se tenga lista la glase usuario
+        let users = this.getAll();
+        const match = users.find(user => user.username === username);
         if (match === undefined) return false;
         else return true;
     }
@@ -44,6 +44,7 @@ export default class Client {
         if(/\s/.test(password)) return false;
         if(!/\W/.test(password) && !/_/.test(password)) return false;
         if(!/[A-Z]/.test(password)) return false;
+        if(!/[0-9]/.test(password)) return false;
         if(password.length < 8 || password.length > 32) return false;
         else return true;
     }
