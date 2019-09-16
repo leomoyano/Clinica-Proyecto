@@ -1,6 +1,5 @@
 export default class Client {
-    /*props[]={nombre, apellido, sexo, edad, fecha de nacimiento, estado civil,
-               direccion, correo, celular, obra social}*/
+
     constructor(props){
         this.props = props;
     }
@@ -8,32 +7,45 @@ export default class Client {
     static getAll(){
         return JSON.parse(localStorage.getItem('client')) || [];
     }
+
     static setAll(clients){
         return localStorage.setItem('client',JSON.stringify(clients));
     }
-
 
     register(){
         let clients = Client.getAll();
         clients.push(this.props);
         Client.setAll(clients);
-        console.log(clients);
     }
 
+    /* Devuelve true si esta bien ingresado el usuario, caso contrario devuelve false */
     static validUsername(username){
-        if(username.length < 4 || username.length > 16) return false;
+        if(/\s/.test(username)){
+            return false;
+        }
+        if (this.searchUsername(username)){
+            alert("Ya existe ese nombre de usuario");
+            return false;
+        }
+        if(username.length < 4 || username.length > 32) return false;
         else return true;
     }
 
-    static validPassword(password){
-        if(password.length < 4 || password.length > 16) return true;
-        else return false;
+    /* Devuelve true si se encontro un usuario con el mismo nombre del que se quiere ingresar */
+    static searchUsername(username){
+        let users = this.getAll();
+        const match = users.find(user => user.username === username);
+        if (match === undefined) return false;
+        else return true;
     }
 
-   static searchUsername(username){
-        let users = this.getAll(); //Traer del local storage los usuarios administrados por el negro
-        const match = users.find(user => user.firstName === username);
-        if (match === undefined) return false;
+    /* Devuelve true si cumple todos los requisitos a la hora de ingresar una contraseña, caso contrario devuelve false */
+    static validPassword(password){
+        if(/\s/.test(password)) return false;
+        if(!/\W/.test(password) && !/_/.test(password)) return false;
+        if(!/[A-Z]/.test(password)) return false;
+        if(!/[0-9]/.test(password)) return false;
+        if(password.length < 8 || password.length > 32) return false;
         else return true;
     }
 }

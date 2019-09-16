@@ -1,58 +1,23 @@
-
-var usuariooo=[{
-    username: "alon",
-    password : "123"
-},
-{
-    username: "negro",
-    password : "1234"
-}];
-localStorage.setItem("dataBase", JSON.stringify(usuariooo));
-
-
 export default class Usuario{
-    constructor(username, password){
-        this.username = username;
-        this.password = password;
+    constructor(props){
+        this.props = props;
     }
 
     static getAll(){
-        return JSON.parse(localStorage.getItem("dataBase"));
-    };
-    static getUserEnter(){
-        return JSON.parse(localStorage.getItem("datosIngresados"));
+        return JSON.parse(localStorage.getItem("client"));
     }
-    static searchUsername(){
-        let users = this.getAll(); //Traer del local storage los usuarios administrados por el negro
-        let usersEnter = this.getUserEnter(); 
-        const matchuser = users.find(user => user.username ===  usersEnter[0].username);
 
+    static searchUsername(username, password){
+        let users = this.getAll(); 
+        const matchuser = users.find(user => user.username ===  username);
         if (matchuser === undefined)
-        {
-            console.log("Usuario no encontrado");
             document.getElementById("exampleInputEmail1").setAttribute("class", "form-control is-invalid");
-        }
         else{
-            console.log();
-            if(matchuser.username === usersEnter[0].username && matchuser.password === usersEnter[0].password)
-            {
-                console.log("Ingreso correctamente");
-                location.href = "index.html";
-            }
-            else{
-                console.log("Contraseña Incorrecta");
+            if(matchuser.password === password) location.href = "index.html";
+            else {
+                document.getElementById("exampleInputPassword1").value = '';
                 document.getElementById("exampleInputEmail1").setAttribute("class", "form-control is-invalid");
             }
         }
-
-        
-
-        // if (matchuser === undefined && matchpass === undefined) return false;
-        // else return true;
     }
-    // login(){
-
-    // };
-    // changePassword(){};
-
 }
