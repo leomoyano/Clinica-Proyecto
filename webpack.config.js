@@ -30,7 +30,8 @@ module.exports = {
 	mode: 'development',
 	entry: {
 		index: './src/index.js',
-		register: './src/register.js'
+		register: './src/register.js',
+		recuperarcontrasenia: './src/recuperarcontrasenia.js'
 	},
 
 	output: {
@@ -56,11 +57,11 @@ module.exports = {
 			filename: 'register.html'
 		  }),
 		  new HtmlWebpackPlugin({
-			title: 'recuperarcontraseña',
+			title: 'recuperarcontrasenia',
 			// Load a custom template (lodash by default)
-			template: './src/recuperarcontraseña.html',
-			chunks : ['recuperarcontraseña'],
-			filename: 'recuperarcontraseña.html'
+			template: './src/recuperarcontrasenia.html',
+			chunks : ['recuperarcontrasenia'],
+			filename: 'recuperarcontrasenia.html'
 		  })
       ],
 

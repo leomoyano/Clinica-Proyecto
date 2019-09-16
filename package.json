@@ -18,5 +18,9 @@
     "webpack": "^4.39.3",
     "webpack-cli": "^3.3.8",
     "webpack-dev-server": "^3.8.0"
+  },
+  "dependencies": {
+    "emailjs": "^2.2.0",
+    "emailjs-com": "^2.3.2"
   }
 }

@@ -32,11 +32,11 @@
                             </div>
 
                         </form>
-                        <p>Se le enviara un codigo de verificacion a su correo electronico</p>
+                        <p>Se le enviara sus datos al mail!</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" data-target="#CodeModal" data-toggle="modal"
-                            data-dismiss="modal">Enviar</button>
+                            data-dismiss="modal" id="btnEnviar">Enviar</button>
                     </div>
                 </div>
             </div>
@@ -51,34 +51,28 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Recuperar contraseña</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Correo Enviado!</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form>
-                                <div class="form-group">
-                                    <label for="recipient-name" class="col-form-label">Ingrese el codigo de verificacion:</label>
-                                    <input type="text" class="form-control" id="recipient-name">
-                                </div>
-                            </form>
-                            <p>Si el Email con el codigo de verificacion no se entrego presione cancelar y vuelva a intentarlo</p>
+                            <p>Se ha enviado sus datos al mail correspondiente!</p>
                         </div>
-                        <div class="modal-footer">
+                        <!-- <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                            <button type="button" class="btn btn-primary" data-target="#ContraseñaModal" data-toggle="modal"
-                            data-dismiss="modal">Aceptar</button>
-                        </div>
+                            <button type="button" class="btn btn-primary" data-target="#ContraseñaModal"
+                                data-toggle="modal" data-dismiss="modal">Aceptar</button>
+                        </div> -->
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
+<!-- 
     <div class="container">
         <div class="row">
-                <div class="modal fade" id="ContraseñaModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            <div class="modal fade" id="ContraseñaModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                 aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -91,27 +85,26 @@
                         <div class="modal-body">
                             <form>
                                 <div class="form-group">
-                                    <label for="recipient-name" class="col-form-label">Ingrese una nueva contraseña:</label>
+                                    <label for="recipient-name" class="col-form-label">Ingrese una nueva
+                                        contraseña:</label>
                                     <input type="text" class="form-control" id="recipient-name">
                                 </div>
                                 <div class="form-group">
-                                        <label for="recipient-name" class="col-form-label">Repita su contraseña:</label>
-                                        <input type="text" class="form-control" id="recipient-name">
-                                    </div>
+                                    <label for="recipient-name" class="col-form-label">Repita su contraseña:</label>
+                                    <input type="text" class="form-control" id="recipient-name">
+                                </div>
                             </form>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                            <button type="button" class="btn btn-primary" 
-                            data-target="index.html"  data-toggle="modal"
-                            data-dismiss="modal"
-                            >Aceptar</button>
+                            <button type="button" class="btn btn-primary" data-target="index.html" data-toggle="modal"
+                                data-dismiss="modal">Aceptar</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -123,6 +116,15 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+    <!-------- EMAIL JS -------->
+    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("user_21fTryGgaycpBI8iJA7b0");
+        })();
+    </script> -->
+    <!---------------------->
 </body>
 
 </html>
