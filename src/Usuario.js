@@ -20,4 +20,10 @@ export default class Usuario{
             }
         }
     }
+    static searchEmail(email){
+        let users = this.getAll(); 
+        const matchuser = users.find(user => user.email ===  email);
+        if (matchuser === undefined) return [];
+        else return [matchuser.username, matchuser.password];
+    }
 }
