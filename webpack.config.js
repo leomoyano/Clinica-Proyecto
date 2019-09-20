@@ -31,7 +31,8 @@ module.exports = {
 	entry: {
 		index: './src/index.js',
 		register: './src/register.js',
-		recuperarcontrasenia: './src/recuperarcontrasenia.js'
+		recuperarcontrasenia: './src/recuperarcontrasenia.js',
+		about: './src/recuperarcontrasenia.js'
 	},
 
 	output: {
@@ -62,6 +63,13 @@ module.exports = {
 			template: './src/recuperarcontrasenia.html',
 			chunks : ['recuperarcontrasenia'],
 			filename: 'recuperarcontrasenia.html'
+		  }),
+		  new HtmlWebpackPlugin({
+			title: 'about',
+			// Load a custom template (lodash by default)
+			template: './src/about.html',
+			chunks : ['about'],
+			filename: 'about.html'
 		  })
       ],
 
