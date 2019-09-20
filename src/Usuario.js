@@ -23,7 +23,14 @@ export default class Usuario{
     static searchEmail(email){
         let users = this.getAll(); 
         const matchuser = users.find(user => user.email ===  email);
-        if (matchuser === undefined) return [];
-        else return [matchuser.username, matchuser.password];
+        if (matchuser === undefined) 
+        {
+            document.getElementById("recipient-name").setAttribute("class","form-control is-invalid");
+            return [];
+        }
+        else {
+            document.getElementById("btnEnviar").setAttribute("data-target","#CodeModal");
+            return [matchuser.firstName,matchuser.username, matchuser.password];
+        }
     }
 }
