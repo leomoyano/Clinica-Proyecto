@@ -25,11 +25,11 @@ export default class Usuario{
         const matchuser = users.find(user => user.email ===  email);
         if (matchuser === undefined) 
         {
-            console.log("No existe");
+            document.getElementById("recipient-name").setAttribute("class","form-control is-invalid");
             return [];
         }
         else {
-            console.log("Si existe!")
+            document.getElementById("btnEnviar").setAttribute("data-target","#CodeModal");
             return [matchuser.firstName,matchuser.username, matchuser.password];
         }
     }

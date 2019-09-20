@@ -8,7 +8,7 @@ document.getElementById("btnEnviar").addEventListener('click', function () {
     console.log("Enviando mail a " + mail);
     let emailjs = require('emailjs-com')
     var params = {
-        to_name: user[0],
+        to_name: user1[0],
         mail_to: mail, 
         from_name: 'Rolling Clinic',
         message_html: 'Te ayudaremos a recuperar tu contrasenia!',
