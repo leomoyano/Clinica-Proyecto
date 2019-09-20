@@ -10,13 +10,11 @@ document.getElementById("btnEnviar").addEventListener('click',function(){
         let emailjs = require('emailjs-com')
         var params = {
             to_name: 'Alon',
-            mail_to: mail, //'santialbornoz.156@gmail.com'
+            mail_to: mail,
             from_name: 'Rolling Clinic',
-            // reply_email: 'santi_albornoz@hotmail.com',
             message_html: 'Te ayudaremos a recuperar tu contrasenia!',
             username: "hola",//user.username, //USUARIO
             password: "chau"//user.password //CONTRASEÑA
             };
             emailjs.send( 'clinica', 'template_KxYlQRd1', params, 'user_21fTryGgaycpBI8iJA7b0' );
-   // }
 });
