@@ -23,7 +23,14 @@ export default class Usuario{
     static searchEmail(email){
         let users = this.getAll(); 
         const matchuser = users.find(user => user.email ===  email);
-        if (matchuser === undefined) return [];
-        else return [matchuser.username, matchuser.password];
+        if (matchuser === undefined) 
+        {
+            console.log("No existe");
+            return [];
+        }
+        else {
+            console.log("Si existe!")
+            return [matchuser.firstName,matchuser.username, matchuser.password];
+        }
     }
 }
