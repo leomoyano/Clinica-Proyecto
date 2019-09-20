@@ -6,11 +6,11 @@ document.getElementById("btnEnviar").addEventListener('click',function(){
     var mail = document.getElementById("recipient-name").value;
     //let user = Usuario.searchEmail(mail);
     //if(user.length != 0){
-        console.log(mail);
+        console.log("Enviando mail a "+mail);
         let emailjs = require('emailjs-com')
         var params = {
             to_name: 'Alon',
-           // mailto: 'santi_albornoz@hotmail.com',
+            mail_to: mail, //'santialbornoz.156@gmail.com'
             from_name: 'Rolling Clinic',
             // reply_email: 'santi_albornoz@hotmail.com',
             message_html: 'Te ayudaremos a recuperar tu contrasenia!',
