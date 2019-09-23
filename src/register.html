@@ -50,13 +50,22 @@
             <div class="col-lg-8">
                 <div class="container  shadow p-3 mb-5 jumbotron rounded my-5">
                     <h1 class="display-3 text-center">Formulario de registro</h1>
-                    <form class="my-5">
+                    <div class="row justify-content-center">
+                        <div class="list-group list-group-horizontal col-lg-4">
+                            <button id="btnClients" type="button" class="list-group-item list-group-item-action active text-center">
+                                Clientes
+                            </button>
+                            <button id="btnDoctors" type="button" class="list-group-item list-group-item-action text-center">Medicos</button>
+                        </div>
+                    </div>
+                    <div id="formBox"></div>
+                    <!-- <form class="my-4">
                         <div class="form-group row">
                             <label for="username" class="text-center col-lg-3 col-form-label">Usuario</label>
                             <div class="col-lg-8">
                                 <input type="text" data-toggle="tooltip" data-placement="top" title="Debes ingresar de 4 a 32 caracteres. 
-                                    No se pueden ingresar espacios."
-                                    class="form-control" id="username" placeholder="Carlos_123" required>
+                                    No se pueden ingresar espacios." class="form-control" id="username"
+                                    placeholder="Carlos_123" required>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -64,29 +73,30 @@
                             <div class="col-lg-8">
                                 <input type="password" data-toggle="tooltip" data-placement="top" title="Ingrese al menos 8 caracteres los 
                                  cuales deben contener al menos una letra mayuscula, un numero y un caracter especial (!, _ , -, @). 
-                                 No se pueden ingresar espacios"
-                                 class="form-control" id="password" placeholder="Contraseña"
-                                    required>
+                                 No se pueden ingresar espacios" class="form-control" id="password"
+                                    placeholder="Contraseña" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="password" class="text-center col-lg-3 col-form-label">Confirmacion</label>
                             <div class="col-lg-8">
-                                <input type="password" data-toggle="tooltip" data-placement="top" title="Aqui debe ingresar la misma contraseña ingresada anteriormente"
-                                 class="form-control" id="validation" placeholder="Confirmacion"
-                                    required>
+                                <input type="password" data-toggle="tooltip" data-placement="top"
+                                    title="Aqui debe ingresar la misma contraseña ingresada anteriormente"
+                                    class="form-control" id="validation" placeholder="Confirmacion" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="firstName" class="text-center col-lg-3 col-form-label">Nombre</label>
                             <div class="col-lg-8">
-                                <input type="firstName" class="form-control" id="firstName" placeholder="Carlos" required>
+                                <input type="firstName" class="form-control" id="firstName" placeholder="Carlos"
+                                    required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="lastName" class="text-center col-lg-3 col-form-label">Apellido</label>
                             <div class="col-lg-8">
-                                <input type="lastName" class="form-control" id="lastName" placeholder="Rodriguez" required>
+                                <input type="lastName" class="form-control" id="lastName" placeholder="Rodriguez"
+                                    required>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -99,7 +109,8 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="birthdate" class="text-center col-lg-3 col-form-label">Fecha de nacimiento</label>
+                            <label for="birthdate" class="text-center col-lg-3 col-form-label">Fecha de
+                                nacimiento</label>
                             <div class="col-lg-4">
                                 <input id="birthdate" type="date" name="bday" max="3000-12-31" min="1000-01-01"
                                     class="form-control" required>
@@ -108,8 +119,8 @@
                         <div class="form-group row">
                             <label for="email" class="text-center col-lg-3 col-form-label">Email</label>
                             <div class="col-lg-8">
-                                <input type="email" class="form-control" id="email" placeholder="carlosrodriguez@gmail.com"
-                                    required>
+                                <input type="email" class="form-control" id="email"
+                                    placeholder="carlosrodriguez@gmail.com" required>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -133,8 +144,9 @@
                         <div class="form-group row">
                             <label for="phone" class="text-center col-lg-3 col-form-label">Celular</label>
                             <div class="col-lg-4">
-                                <input type="tel" data-toggle="tooltip" data-placement="top" title="El celular ingresado debe seguir el siguiente modelo +549-(codigo local)-(7 digitos)" class="form-control" id="phone" name="phone"
-                                    placeholder="+5493815958645" required>
+                                <input type="tel" data-toggle="tooltip" data-placement="top"
+                                    title="El celular ingresado debe seguir el siguiente modelo +549-(codigo local)-(7 digitos)"
+                                    class="form-control" id="phone" name="phone" placeholder="+5493815958645" required>
                             </div>
                         </div>
                         <div class="row justify-content-center">
@@ -142,7 +154,7 @@
                                 <button type="submit" class="btn btn-primary" id="register">Register</button>
                             </div>
                         </div>
-                    </form>
+                    </form> -->
                 </div>
             </div>
         </div>

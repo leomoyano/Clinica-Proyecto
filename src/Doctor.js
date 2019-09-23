@@ -1,21 +1,21 @@
-export default class Client {
+export default class Doctor {
 
     constructor(props){
         this.props = props;
     }
 
     static getAll(){
-        return JSON.parse(localStorage.getItem('client')) || [];
+        return JSON.parse(localStorage.getItem('doctor')) || [];
     }
 
-    static setAll(clients){
-        return localStorage.setItem('client',JSON.stringify(clients));
+    static setAll(doctors){
+        return localStorage.setItem('doctor',JSON.stringify(doctors));
     }
 
     register(){
-        let clients = Client.getAll();
-        clients.push(this.props);
-        Client.setAll(clients);
+        let doctors = Doctor.getAll();
+        doctors.push(this.props);
+        Doctor.setAll(doctors);
     }
 
     /* Devuelve true si esta bien ingresado el usuario, caso contrario devuelve false */
