@@ -16,34 +16,26 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-white justify-content-between">
         <div class="col-2">
-            <a class="navbar-brand" href="index.html">RollingClinic</a>
+          <a class="navbar-brand" href="index.html">RollingClinic</a>
         </div>
-
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+          aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="col-lg-6">
-            <div class="collapse navbar-collapse justify-content-center ml-5" id="navbarNavAltMarkup">
-                <div class="navbar-nav align-items-center">
-                    <a class="nav-item nav-link mx-3" href="#especialidad">Especialidad</a>
-                    <a class="nav-item nav-link mx-3" href="#servicios">Servicios</a>
-                    <a class="nav-item nav-link mx-3" href="#sobreNosotros">Sobre Nosotros</a>
-                    <a class="nav-item nav-link mx-3" href="#contactos">Contacto</a>
-                </div>
+        <div class="col-lg-9">
+          <div class="collapse navbar-collapse justify-content-end ml-5" id="navbarNavAltMarkup">
+            <div class="navbar-nav align-items-center">
+              <a class="nav-item nav-link mx-3" href="#especialidad">Especialidad</a>
+              <a class="nav-item nav-link mx-3" href="#servicios">Servicios</a>
+              <a class="nav-item nav-link mx-3" href="#sobreNosotros">Sobre Nosotros</a>
+              <a class="nav-item nav-link mx-3" href="#contactos">Contacto</a>
+              <button type="button" class="btn login-btn">
+                <a class="text-light font-weight-bold" href="#" data-toggle="modal" data-target="#exampleModal">Turnos</a>
+              </button>
             </div>
+          </div>
         </div>
-        <div class="col-3">
-            <div class="justify-content-center align-items-center d-none d-lg-flex">
-                <span class="py-3 mr-2">Saca tu turno:</span>
-                <button type="button" class="btn login-btn">
-                    <a class="text-light " href="#" data-toggle="modal" data-target="#exampleModal">Ingresa
-                        aquí</a>
-                </button>
-            </div>
-        </div>
-
-    </nav>
+      </nav>
     <!-- /*props[]={fecha de nacimiento, obra social}*/ -->
     <div class="container-fluid mb-0">
         <div class="row justify-content-center">
@@ -51,7 +43,7 @@
                 <div class="container  shadow p-3 mb-5 jumbotron rounded my-5">
                     <h1 class="display-3 text-center">Formulario de registro</h1>
                     <div class="row justify-content-center">
-                        <div class="list-group list-group-horizontal col-lg-4">
+                        <div class="list-group list-group-horizontal col-xs-4">
                             <button id="btnClients" type="button" class="list-group-item list-group-item-action active text-center">
                                 Clientes
                             </button>
@@ -59,102 +51,6 @@
                         </div>
                     </div>
                     <div id="formBox"></div>
-                    <!-- <form class="my-4">
-                        <div class="form-group row">
-                            <label for="username" class="text-center col-lg-3 col-form-label">Usuario</label>
-                            <div class="col-lg-8">
-                                <input type="text" data-toggle="tooltip" data-placement="top" title="Debes ingresar de 4 a 32 caracteres. 
-                                    No se pueden ingresar espacios." class="form-control" id="username"
-                                    placeholder="Carlos_123" required>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="password" class="text-center col-lg-3 col-form-label">Contraseña</label>
-                            <div class="col-lg-8">
-                                <input type="password" data-toggle="tooltip" data-placement="top" title="Ingrese al menos 8 caracteres los 
-                                 cuales deben contener al menos una letra mayuscula, un numero y un caracter especial (!, _ , -, @). 
-                                 No se pueden ingresar espacios" class="form-control" id="password"
-                                    placeholder="Contraseña" required>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="password" class="text-center col-lg-3 col-form-label">Confirmacion</label>
-                            <div class="col-lg-8">
-                                <input type="password" data-toggle="tooltip" data-placement="top"
-                                    title="Aqui debe ingresar la misma contraseña ingresada anteriormente"
-                                    class="form-control" id="validation" placeholder="Confirmacion" required>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="firstName" class="text-center col-lg-3 col-form-label">Nombre</label>
-                            <div class="col-lg-8">
-                                <input type="firstName" class="form-control" id="firstName" placeholder="Carlos"
-                                    required>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="lastName" class="text-center col-lg-3 col-form-label">Apellido</label>
-                            <div class="col-lg-8">
-                                <input type="lastName" class="form-control" id="lastName" placeholder="Rodriguez"
-                                    required>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="sex" class="text-center col-lg-3 col-form-label">Sexo</label>
-                            <div class="col-lg-4">
-                                <select class="form-control" id="sex">
-                                    <option>Hombre</option>
-                                    <option>Mujer</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="birthdate" class="text-center col-lg-3 col-form-label">Fecha de
-                                nacimiento</label>
-                            <div class="col-lg-4">
-                                <input id="birthdate" type="date" name="bday" max="3000-12-31" min="1000-01-01"
-                                    class="form-control" required>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="email" class="text-center col-lg-3 col-form-label">Email</label>
-                            <div class="col-lg-8">
-                                <input type="email" class="form-control" id="email"
-                                    placeholder="carlosrodriguez@gmail.com" required>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="address" class="text-center col-lg-3 col-form-label">Direccion</label>
-                            <div class="col-lg-8">
-                                <input type="text" class="form-control" id="address" placeholder="Gral. Paz 564"
-                                    required>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="Martial status" class="text-center col-lg-3 col-form-label">Estado civil</label>
-                            <div class="col-lg-4">
-                                <select class="form-control" id="martialStatus">
-                                    <option>Soltero</option>
-                                    <option>Casado</option>
-                                    <option>Divorciado</option>
-                                    <option>Viudo</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="phone" class="text-center col-lg-3 col-form-label">Celular</label>
-                            <div class="col-lg-4">
-                                <input type="tel" data-toggle="tooltip" data-placement="top"
-                                    title="El celular ingresado debe seguir el siguiente modelo +549-(codigo local)-(7 digitos)"
-                                    class="form-control" id="phone" name="phone" placeholder="+5493815958645" required>
-                            </div>
-                        </div>
-                        <div class="row justify-content-center">
-                            <div class="col-med-3">
-                                <button type="submit" class="btn btn-primary" id="register">Register</button>
-                            </div>
-                        </div>
-                    </form> -->
                 </div>
             </div>
         </div>
@@ -260,11 +156,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-    <script>
-        $(function () {
-            $('[data-toggle="tooltip"]').tooltip()
-        })
-    </script>
 </body>
 
 </html>
