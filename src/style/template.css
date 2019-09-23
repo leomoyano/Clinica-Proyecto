@@ -119,3 +119,14 @@ footer {
 .mostrarMas:hover {
     text-decoration: none;
 }
+
+.about-text {
+    background: #e4e3e3;
+    border-radius: 25px;
+    padding: 12px;
+    -webkit-box-shadow: 7px 6px 42px -20px rgba(0,0,0,0.75);
+}
+
+.card-container .card {
+    border-radius: 15px;
+}
