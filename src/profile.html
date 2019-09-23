@@ -1,76 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .sidenav {
+            height: 100%;
+            position:;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            padding-top: 20px;
 
-.sidenav   {
-    height: 100%;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #111;
-  overflow-x: hidden;
-  padding-top: 20px;
+        }
 
-}
-.b
-{
-    background-color: yellow;
-}
-.sidenav a{
-    display: block;
-    padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-}
-.sidenav a:hover {
-  color: #f1f1f1;
-}
-</style>
+        .b {
+            background-color: yellow;
+        }
+
+        .sidenav a {
+            display: block;
+            padding: 15px 10px 20px 20px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+        }
+
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+
+        .user {
+            font-size: 25px;
+            background-color: #818181;
+        }
+    </style>
 </head>
+
 <body>
     <div class="container-fluid">
         <div class="row">
-                    <div class="sidenav col-2">
+            <div class="sidenav col-2">
+                <div class="flex-column">
                         <div class="sidenav-header">
-                            <a href="index.html">
-                                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/e/ef/2019_Rugby_World_Cup_%28logo%29.svg/1200px-2019_Rugby_World_Cup_%28logo%29.svg.png" style="height: 100px">
-                            </a>
+                                <a href="index.html">
+                                    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/e/ef/2019_Rugby_World_Cup_%28logo%29.svg/1200px-2019_Rugby_World_Cup_%28logo%29.svg.png"
+                                        style="height: 100px">
+                                </a>
+                            </div>
+                            <a href="#" id="profile">Perfil</a>
+                            <a href="#" id="appointments">Turnos</a>
+                            <a href="#" id="history">Historial Clinico</a>
+                            <a href="#" id="doctors">Doctores</a>
+                            <a href="#" id="familiargroup">Grupo familiar</a>
+                </div>
+                
+            </div>
+            <div class="b col-10" id="content">
+                <div class="user container">Usuario : santiago</div>
+                <form class="container">
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="inputEmail4">Nombre</label>
+                            <input type="email" class="form-control" id="inputName" placeholder="Nombre">
                         </div>
-                            <a href="#about">About</a>
-                            <a href="#services">Services</a>
-                            <a href="#clients">Clients</a>
-                            <a href="#contact">Contact</a>
+                        <div class="form-group col-md-4">
+                            <label for="inputPassword4">Apellido</label>
+                            <input type="password" class="form-control" id="inputSubname" placeholder="Apellido">
+                        </div>
                     </div>
-                    <div class="b col-12">
-                            <a href="#about">About</a>
-                            <a href="#services">Services</a>
-                            <a href="#clients">Clients</a>
-                            <a href="#contact">Contact</a>
+                    <div class="form-row">
+                        <div class="form-group col-md-3">
+                            <label for="inputState">State</label>
+                            <select id="inputState" class="form-control">
+                                <option selected>Choose...</option>
+                                <option>...</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="inputState2">Estado civil</label>
+                            <select id="inputState2" class="form-control">
+                                <option selected>Choose...</option>
+                                <option>...</option>
+                            </select>
+                        </div>
                     </div>
+
+                    <div class="form-group col-md-5">
+                        <label for="inputAddress">Fecha de nacimiento</label>
+                        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                    </div>
+                    <div class="form-group col-md-5">
+                        <label for="inputAddress2">Obra social</label>
+                        <input type="text" class="form-control" id="inputAddress2" placeholder="Obra social">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-5">
+                            <label for="inputCity">Direccion</label>
+                            <input type="text" class="form-control" id="inputCity">
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="inputZip">Correo</label>
+                            <input type="text" class="form-control" id="inputZip">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                            <label for="inputAddress3">Telefono</label>
+                            <input type="text" class="form-control" id="inputAddress3" placeholder="3813102312">
+                        </div>
+
+                    <button type="submit" class="btn btn-primary">Modificar datos</button>
+                </form>
+            </div>
         </div>
     </div>
 
-      
+
 </body>
 
- <!-- jQuery first, then Popper.js, then Bootstrap JS -->
- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
- integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
- </script>
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
- integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
- </script>
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
- integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
- </script>
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+
 </html>
