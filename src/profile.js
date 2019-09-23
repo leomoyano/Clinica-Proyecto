@@ -1,62 +1,33 @@
+import '../src/style/template.css';
+import Usuario from './Usuario';
+import Client from './Client';
+
 var profile = document.getElementById("profile").addEventListener('click', function () {
     console.log("Hola");
+    var users = Client.getAll();
+    var nombre = users[0].firstName;
+    var apellido = users[0].lastName;
+    var sexo = users[0].sex;
+    var nacimiento = users[0].birthdate;
+    var direccion = users[0].address;
+    var nacimiento = users[0].birthdate;
+    var estadocivil = users[0].martialStatus;
+    var correo = users[0].email;
+    var telefono = users[0].phone;
+
     var profile1 = document.getElementById("content").innerHTML = `                <div class="user container">Usuario : sasdas</div>
-    <form class="container">
-        <div class="form-row">
-            <div class="form-group col-md-4">
-                <label for="inputEmail4">Nombre</label>
-                <input type="email" class="form-control" id="inputName" placeholder="Nombre">
-            </div>
-            <div class="form-group col-md-4">
-                <label for="inputPassword4">Apellido</label>
-                <input type="password" class="form-control" id="inputSubname" placeholder="Apellido">
-            </div>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-3">
-                <label for="inputState">State</label>
-                <select id="inputState" class="form-control">
-                    <option selected>Choose...</option>
-                    <option>...</option>
-                </select>
-            </div>
-            <div class="form-group col-md-3">
-                <label for="inputState2">Estado civil</label>
-                <select id="inputState2" class="form-control">
-                    <option selected>Choose...</option>
-                    <option>...</option>
-                </select>
-            </div>
-        </div>
-
-        <div class="form-group col-md-5">
-            <label for="inputAddress">Fecha de nacimiento</label>
-            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-        </div>
-        <div class="form-group col-md-5">
-            <label for="inputAddress2">Obra social</label>
-            <input type="text" class="form-control" id="inputAddress2" placeholder="Obra social">
-        </div>
-
-        <div class="form-row">
-            <div class="form-group col-md-5">
-                <label for="inputCity">Direccion</label>
-                <input type="text" class="form-control" id="inputCity">
-            </div>
-
-            <div class="form-group col-md-4">
-                <label for="inputZip">Correo</label>
-                <input type="text" class="form-control" id="inputZip">
-            </div>
-        </div>
-        <div class="form-group col-md-4">
-                <label for="inputAddress3">Telefono</label>
-                <input type="text" class="form-control" id="inputAddress3" placeholder="3813102312">
-            </div>
-
-        <button type="submit" class="btn btn-primary">Modificar datos</button>
-    </form>`;
+<br><br>
+<p style="font-size: 20px;">Nombre: `+nombre+`   <button type="button" class="btn btn-primary btn-sm">Editar</button></p>
+<p style="font-size: 20px;">Apellido: `+apellido+`  <button type="button" class="btn btn-primary btn-sm">Editar</button></p>
+<p style="font-size: 20px;">Sexo: `+sexo+` <button type="button" class="btn btn-primary btn-sm">Editar</button></p>
+<p style="font-size: 20px;">Nacimiento: `+nacimiento+` <button type="button" class="btn btn-primary btn-sm">Editar</button></p>
+<p style="font-size: 20px;">Direccion: `+direccion+` <button type="button" class="btn btn-primary btn-sm">Editar</button></p>
+<p style="font-size: 20px;">Estado civil: `+estadocivil+` <button type="button" class="btn btn-primary btn-sm">Editar</button></p>
+<p style="font-size: 20px;">Correo: `+correo+` <button type="button" class="btn btn-primary btn-sm">Editar</button></p>
+<p style="font-size: 20px;">Telefono: `+telefono+` <button type="button" class="btn btn-primary btn-sm">Editar</button></p>
+`;
 })
+//Nombre, apellido, sexo, edad, obra social, nacimiento, estado civil, direccion, correo, telefono, celular.
 var profile = document.getElementById("appointments").addEventListener('click', function () {
     console.log("Hola1");
     var profile1 = document.getElementById("content").innerHTML = `                <div class="user container">Usuario : asdsasasdas</div>
@@ -92,7 +63,7 @@ var profile = document.getElementById("appointments").addEventListener('click', 
             <input type="" class="form-control" id="inputSubname" placeholder="Telefono">
             </div>
         </div>
-        <button type="submit" class="btn btn-primary">Sacar turno</button>
+        <button type="submit" class="btn btn-primary" id="btnturn">Sacar turno</button>
     </form>
     <br><br>
     <table class=" container table table-dark">
@@ -132,6 +103,9 @@ var profile = document.getElementById("appointments").addEventListener('click', 
 </table>
     
     `;
+    var btnturn = document.getElementById("btnturn").addEventListener('click', function () {
+        console.log("Hoasdla");
+    })
 })
 var profile = document.getElementById("history").addEventListener('click', function () {
     console.log("Hola2");
@@ -319,7 +293,10 @@ var profile = document.getElementById("doctors").addEventListener('click', funct
 
     
     `;
+
+
 })
 var profile = document.getElementById("familiargroup").addEventListener('click', function () {
     console.log("Hola4");
 })
+
