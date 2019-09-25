@@ -4,6 +4,9 @@ export default class Usuario{
     static getAllClient(){
         return JSON.parse(localStorage.getItem('client'));
     }
+    static setAllClient(clients){
+        return localStorage.setItem('client',JSON.stringify(clients));
+    }
     static setClientID(index){
         localStorage.removeItem('clientID');
         return localStorage.setItem('clientID',JSON.stringify(index));
@@ -15,6 +18,9 @@ export default class Usuario{
     /* Propiedades de los doctores */
     static getAllDoctor(){
         return JSON.parse(localStorage.getItem('doctor'));
+    }
+    static setAllDoctor(doctors){
+        return localStorage.setItem('doctor',JSON.stringify(doctors));
     }
     static setDoctorID(index){
         localStorage.removeItem('doctorID');
@@ -53,36 +59,36 @@ export default class Usuario{
         }
     }
 
-    static editClient(field, input){
+    static editClient(input){
         let clients = this.getAllClient();
         let indexClient = this.getClientID();
-        switch(field){
-            case 'firstName': clients[indexClient].firstName = input; break;
-            case 'lastName': clients[indexClient].lastName = input; break;
-            case 'sex': clients[indexClient].sex = input; break;
-            case 'birthdate': clients[indexClient].birthdate = input; break;
-            case 'email': clients[indexClient].email = input; break;
-            case 'address': clients[indexClient].address = input; break;
-            case 'martialStatus': clients[indexClient].martialStatus = input; break;
-            case 'phone': clients[indexClient].phone = input; break;
-        }
+        clients[indexClient].firstName = input.firstName;
+        clients[indexClient].lastName = input.lastName;
+        clients[indexClient].birthdate = input.birthdate;
+        clients[indexClient].sex = input.sex;
+        clients[indexClient].address = input.address;
+        clients[indexClient].email = input.email;
+        clients[indexClient].phone = input.phone;
+        clients[indexClient].martialStatus = input.martialStatus;
+        this.setAllClient(clients);
+
     }
 
-    static editDoctor(field, input){
+    static editDoctor(input){
         let doctors = this.getAllDoctor();
         let indexDoctor = this.getDoctorID();
-        switch(field){
-            case 'firstName': doctors[indexDoctor].firstName = input; break;
-            case 'lastName': doctors[indexDoctor].lastName = input; break;
-            case 'sex': doctors[indexDoctor].sex = input; break;
-            case 'birthdate': doctors[indexDoctor].birthdate = input; break;
-            case 'email': doctors[indexDoctor].email = input; break;
-            case 'address': doctors[indexDoctor].address = input; break;
-            case 'martialStatus': doctors[indexDoctor].martialStatus = input; break;
-            case 'phone': doctors[indexDoctor].phone = input; break;
-            case 'specialism': doctors[indexDoctor].specialism = input; break;
-            case 'experience': doctors[indexDoctor].experience = input; break;
-        }
+        doctors[indexDoctor].firstName = input.firstName;
+        doctors[indexDoctor].lastName = input.lastName;
+        doctors[indexDoctor].sex = input.sex;
+        doctors[indexDoctor].birthdate = input.birthdate;
+        doctors[indexDoctor].email = input.email;
+        doctors[indexDoctor].address = input.address;
+        doctors[indexDoctor].martialStatus = input.martialStatus;
+        doctors[indexDoctor].phone = input.phone;
+        doctors[indexDoctor].specialism = input.specialism;
+        doctors[indexDoctor].experience = input.experience;
+        this.setAllDoctor(doctors);
+        
     }
 
     static searchEmail(email){
