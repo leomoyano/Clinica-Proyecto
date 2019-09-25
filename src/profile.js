@@ -2,8 +2,9 @@ import '../src/style/template.css';
 import Usuario from './Usuario';
 import Client from './Client';
 
+var profile1 = document.getElementById("content").addEventListener('click')
+
 var profile = document.getElementById("profile").addEventListener('click', function () {
-    console.log("Hola");
     var users = Client.getAll();
     var nombre = users[0].firstName;
     var apellido = users[0].lastName;
@@ -17,26 +18,120 @@ var profile = document.getElementById("profile").addEventListener('click', funct
 
     var profile1 = document.getElementById("content").innerHTML = `                <div class="user container">Usuario : sasdas</div>
 <br><br>
-<p style="font-size: 20px;">Nombre: `+nombre+`   <button type="button" class="btn btn-primary btn-sm">Editar</button></p>
-<p style="font-size: 20px;">Apellido: `+apellido+`  <button type="button" class="btn btn-primary btn-sm">Editar</button></p>
-<p style="font-size: 20px;">Sexo: `+sexo+` <button type="button" class="btn btn-primary btn-sm">Editar</button></p>
-<p style="font-size: 20px;">Nacimiento: `+nacimiento+` <button type="button" class="btn btn-primary btn-sm">Editar</button></p>
-<p style="font-size: 20px;">Direccion: `+direccion+` <button type="button" class="btn btn-primary btn-sm">Editar</button></p>
-<p style="font-size: 20px;">Estado civil: `+estadocivil+` <button type="button" class="btn btn-primary btn-sm">Editar</button></p>
-<p style="font-size: 20px;">Correo: `+correo+` <button type="button" class="btn btn-primary btn-sm">Editar</button></p>
-<p style="font-size: 20px;">Telefono: `+telefono+` <button type="button" class="btn btn-primary btn-sm">Editar</button></p>
+<div class="container d-flex justify-content-end"><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalEditardatos">Modificar datos</button>
+</div>
+
+<p style="font-size: 20px;">Nombre: `+ nombre + `</p>
+<p style="font-size: 20px;">Apellido: `+ apellido + `</p>
+<p style="font-size: 20px;">Sexo: `+ sexo + `</p>
+<p style="font-size: 20px;">Nacimiento: `+ nacimiento + `</p>
+<p style="font-size: 20px;">Direccion: `+ direccion + `</p>
+<p style="font-size: 20px;">Estado civil: `+ estadocivil + `</p>
+<p style="font-size: 20px;">Correo: `+ correo + `</p>
+<p style="font-size: 20px;">Telefono: `+ telefono + `</p>
+
+<!-- Modal -->
+<div class="modal fade" id="modalEditardatos" tabindex="-1" role="dialog" aria-labelledby="modalEditardatosTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modificar datos</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+            
+            <div class="form-group row">
+                <label for="firstName" class="text-center col-lg-3 col-form-label">Nombre</label>
+                <div class="col-lg-8">
+                    <input type="firstName" class="form-control" id="firstName" value="`+ nombre + `" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="lastName" class="text-center col-lg-3 col-form-label">Apellido</label>
+                <div class="col-lg-8">
+                    <input type="lastName" class="form-control" id="lastName" value="`+ apellido + `" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="sex" class="text-center col-lg-3 col-form-label">Sexo</label>
+                <div class="col-lg-5">
+                    <select class="form-control" value="`+ sexo + `" id="sex">
+                        <option>Hombre</option>
+                        <option>Mujer</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="birthdate" class="text-center col-lg-3 col-form-label">Nacimiento</label>
+                <div class="col-lg-5">
+                    <input id="birthdate" type="date" name="bday" max="2020-12-31" min="2019-09-26"
+                        class="form-control" value="`+ nacimiento + `" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="email" class="text-center col-lg-3 col-form-label" >Email</label>
+                <div class="col-lg-8">
+                    <input type="email" class="form-control" id="email"
+                    value="`+ correo + `" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="address" class="text-center col-lg-3 col-form-label">Direccion</label>
+                <div class="col-lg-8">
+                    <input type="text" class="form-control" id="address" value="`+ direccion + `" 
+                        required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="Martial status" class="text-center col-lg-3 col-form-label">Estado civil</label>
+                <div class="col-lg-4">
+                    <select class="form-control" value="`+ estadocivil + `" id="martialStatus">
+                        <option>Soltero</option>
+                        <option>Casado</option>
+                        <option>Divorciado</option>
+                        <option>Viudo</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="phone" class="text-center col-lg-3 col-form-label">Celular</label>
+                <div class="col-lg-6">
+                    <input type="tel" data-toggle="tooltip" data-placement="top"
+                        title="El celular ingresado debe seguir el siguiente modelo +549-(codigo local)-(7 digitos)"
+                        class="form-control" id="phone" name="phone" value="`+ telefono + `"  required>
+                </div>
+            </div>
+        
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Salir</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" id="saveChanges">Guardar cambios</button>
+      </div>
+    </div>
+  </div>
+</div>
 `;
+    // var nombre = document.getElementById("1");
+    // console.log(nombre);
+    var saveChanges = document.getElementById("saveChanges").addEventListener('click', function () {
+console.log("hol");
+
+    })
+
 })
-//Nombre, apellido, sexo, edad, obra social, nacimiento, estado civil, direccion, correo, telefono, celular.
+
 var profile = document.getElementById("appointments").addEventListener('click', function () {
-    console.log("Hola1");
+    
     var profile1 = document.getElementById("content").innerHTML = `                <div class="user container">Usuario : asdsasasdas</div>
     <form class="container">
         <div class="form-row">
             <div class="form-group col-md-3">
-                <label for="inputState">Sacar turno</label>
-                <select id="inputState" class="form-control">
-                    <option selected>Area...</option>
+                <label for="inputState">Area</label>
+                <select id="area" class="form-control" >
+                    <option selected>Elegir...</option>
                     <option>Cirugia</option>
                     <option>Internacion</option>
                     <option>Neonatologia</option>
@@ -46,24 +141,38 @@ var profile = document.getElementById("appointments").addEventListener('click', 
             </div>
             <div class="form-group col-md-3">
                 <label for="inputState2">Profesional</label>
-                <select id="inputState2" class="form-control">
-                    <option selected>Choose...</option>
+                <select id="profesional" class="form-control" >
+                    <option selected>Elegir...</option>
                     <option>Lopez, Facundo</option>
                     <option>Juarez, Diego</option>
                     <option>Druck, Alon (recomendado)</option>
                 </select>
             </div>
         </div>
+        
         <div class="form-row">
-            <div class="form-group col-md-4">
-            <input type="date" id="start" name="trip-start" value="2018-07-22" min="2018-01-01" max="2018-12-31">
-            </div>
-            <div class="form-group col-md-4">
-            <label for="inputPassword4">Telefono de contacto</label>
-            <input type="" class="form-control" id="inputSubname" placeholder="Telefono">
-            </div>
+        <div class="form-group col-md-3">
+        <label for="inputState" class="text-center col-lg-3 col-form-label">Fecha</label>
+        <div class="col-lg-12">
+            <input id="fecha" type="date" max="2020-12-31" min="2019-09-26" class="form-control" value="2019-09-26" required>
         </div>
-        <button type="submit" class="btn btn-primary" id="btnturn">Sacar turno</button>
+    </div>
+    <div class="form-group col-md-3">
+    <label for="inputState2">Hora</label>
+    <select id="hora" class="form-control" >
+        <option selected>Elegir...</option>
+        <option>10:00</option>
+        <option>12:00</option>
+        <option>14:00</option>
+        <option>16:00</option>
+        <option>18:00</option>
+        <option>20:00</option>
+    </select>
+
+</div>
+        </div>
+        <button type="" class="btn btn-primary" id="btnturn">Sacar turno</button>
+        <button type="" class="btn btn-primary" id="btnViewTurns">Ver mis turnos</button>
     </form>
     <br><br>
     <table class=" container table table-dark">
@@ -76,35 +185,98 @@ var profile = document.getElementById("appointments").addEventListener('click', 
       <th scope="col">Medico</th>
     </tr>
   </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>15/10/2019</td>
-      <td>18:30</td>
-      <td>Cirugia</td>
-      <td>Druck, Alon</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>18/11/2019</td>
-      <td>15:30</td>
-      <td>Internacion</td>
-      <td>Druck, Alon</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>05/3/2020</td>
-      <td>10:00</td>
-      <td>Neonatologia</td>
-      <td>Druck, Alon</td>
-    </tr>
+  <tbody id="turnosConfirmados">
+
+
     
   </tbody>
 </table>
     
     `;
     var btnturn = document.getElementById("btnturn").addEventListener('click', function () {
-        console.log("Hoasdla");
+        
+        var turns = JSON.parse(localStorage.getItem("turns")) || [];
+        console.log(turns);
+        var area = document.getElementById("area").value;
+        var profesional = document.getElementById("profesional").value;
+        var fecha = document.getElementById("fecha").value;
+        var hora = document.getElementById("hora").value;
+
+        var turnosConfirmados = document.getElementById("turnosConfirmados");
+
+        var datosTurno = {
+            area : area,
+            profesional : profesional,
+            fecha : fecha,
+            hora: hora
+        }
+       
+
+        
+        function funcion(item,index){
+            turnosConfirmados.innerHTML+= `<tr>
+            <th scope="row">1</th>
+            <td>`+item.fecha+`</td>
+            <td>`+item.hora+`</td>
+            <td>`+item.area+`</td>
+            <td>`+item.profesional+`</td>
+          </tr>`;
+        }
+        if(area == "Elegir...")
+        {
+            document.getElementById("area").setAttribute("class", "form-control is-invalid");
+        }
+        else
+        {
+            document.getElementById("area").setAttribute("class", "form-control is-valid");
+        }
+
+        if(profesional == "Elegir...")
+        {
+            document.getElementById("profesional").setAttribute("class", "form-control is-invalid");
+        }
+        else
+        {
+            document.getElementById("profesional").setAttribute("class", "form-control is-valid");
+        }
+
+
+        if(hora == "Elegir...")
+        {
+            document.getElementById("hora").setAttribute("class", "form-control is-invalid");
+        }
+        else
+        {
+            document.getElementById("hora").setAttribute("class", "form-control is-valid");
+        }
+
+        if(area != "Elegir..." && profesional != "Elegir..." && hora != "Elegir...")
+        {            
+            var r = confirm("Estas seguro que queres ese turno?");
+                if (r == true) {
+                  alert("Turno agendado!")
+                  turns.push(datosTurno);   
+                  localStorage.setItem("turns", JSON.stringify(turns));
+                  turnosConfirmados.innerHTML='';
+                  turns.forEach(funcion);
+                } 
+
+        }
+    })
+    var btnViewTurns = document.getElementById("btnViewTurns").addEventListener('click',function(){
+        var turns = JSON.parse(localStorage.getItem("turns")) || [];
+        turnosConfirmados.innerHTML='';    
+        turns.forEach(funcion);
+            
+        function funcion(item,index){
+            turnosConfirmados.innerHTML+= `<tr>
+            <th scope="row">1</th>
+            <td>`+item.fecha+`</td>
+            <td>`+item.hora+`</td>
+            <td>`+item.area+`</td>
+            <td>`+item.profesional+`</td>
+          </tr>`;
+        }
     })
 })
 var profile = document.getElementById("history").addEventListener('click', function () {
