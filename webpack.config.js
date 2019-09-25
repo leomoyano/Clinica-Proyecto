@@ -32,7 +32,7 @@ module.exports = {
 		index: './src/index.js',
 		register: './src/register.js',
 		recuperarcontrasenia: './src/recuperarcontrasenia.js',
-		about: './src/about.js',
+		//about: './src/about.js',
 		profile: './src/profile.js'
 	},
 
