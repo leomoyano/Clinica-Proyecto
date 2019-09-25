@@ -33,12 +33,14 @@ export default class Usuario{
     static searchUsername(username, password){
         let clients = this.getAllClient();
         let doctors = this.getAllDoctor();
-        const indexClients = clients.findIndex(client => client.username === username);
-        const indexDoctors = doctors.findIndex(doctor => doctor.username ===  username);
+        console.log(doctors);
+        if(clients) {var indexClients = clients.findIndex(client => client.username === username);}
+        if(doctors) {var indexDoctors = doctors.findIndex(doctor => doctor.username ===  username);}
         if (indexClients == -1 && indexDoctors == -1)
             document.getElementById("exampleInputEmail1").setAttribute("class", "form-control is-invalid");
         else if(indexClients != -1){
             if(clients[indexClients].password === password){
+                console.log('indexClient: ' + indexClients);
                 this.setClientID(indexClients);
                 location.href = "index.html";//Pagina cleintes
             } 
