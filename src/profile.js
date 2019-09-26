@@ -2,7 +2,6 @@ import '../src/style/template.css';
 import Usuario from './Usuario';
 import Client from './Client';
 
-var profile2 = document.getElementById("content").innerHTML = "Hola";
 var cliente = Usuario.getClientID();
 var users = Client.getAll();
 var nombre = users[cliente].firstName;
@@ -15,8 +14,14 @@ var estadocivil = users[cliente].martialStatus;
 var correo = users[cliente].email;
 var telefono = users[cliente].phone;
 
-var profile1 = document.getElementById("content").innerHTML = `                <div class="user container">Bienvenido `+ nombre +`. <div class="container d-flex justify-content-end"><button type="button" class="btn btn-primary btn-sm" >Cerrar sesion</button>
-</div></div>
+var profile1 = document.getElementById("content").innerHTML = `   
+           
+<br>
+<div class="container d-flex justify-content-around">
+    <div class="user " style="font-family: times, serif; font-size:14pt;">Bienvenido <b>`+ nombre +`</b></div>
+    <button type="button" class="btn btn-primary btn-sm " >Cerrar sesion</button>
+</div>
+ 
 <br><br>
 
 <div class="container d-flex justify-content-end"><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalEditardatos">Modificar datos</button>
@@ -116,7 +121,154 @@ var profile1 = document.getElementById("content").innerHTML = `                <
 </div>
 `;
 
+var saveChanges = document.getElementById("saveChanges").addEventListener('click', function () {
+    var nuevonombre = document.getElementById("firstName").value;
+    var nuevoapellido = document.getElementById("lastName").value;
+    var nuevosexo = document.getElementById("sex").value;
+    var nuevonacimiento = document.getElementById("birthdate").value;
+    var nuevadireccion = document.getElementById("address").value;
+    var nuevoestadocivil = document.getElementById("lastName").value;
+    var nuevocorreo = document.getElementById("email").value;
+    var nuevotelefono = document.getElementById("phone").value;
+    var cliente2 = Usuario.getClientID();
+    var users = Client.getAll();
 
+    console.log(cliente2);
+    var nuevosDatos = {
+        username :  users[cliente2].username,
+        password : users[cliente2].password,
+        firstName : nuevonombre,
+        lastName : nuevoapellido,
+        sex : nuevosexo,
+        birthdate : nuevonacimiento,
+        address : nuevadireccion,
+        marrialStatus : nuevoestadocivil,
+        email : nuevocorreo,
+        phone : nuevotelefono
+    }
+    //console.log(nuevosDatos);
+
+
+var cambio = users.splice(cliente2,1,nuevosDatos);
+localStorage.setItem("client", JSON.stringify(users));
+
+var cliente = Usuario.getClientID();
+var users = Client.getAll();
+var nombre = users[cliente].firstName;
+var apellido = users[cliente].lastName;
+var sexo = users[cliente].sex;
+var nacimiento = users[cliente].birthdate;
+var direccion = users[cliente].address;
+var nacimiento = users[cliente].birthdate;
+var estadocivil = users[cliente].martialStatus;
+var correo = users[cliente].email;
+var telefono = users[cliente].phone;
+var profile1 = document.getElementById("content").innerHTML = `          <br>
+<div class="container d-flex justify-content-around">
+    <div class="user " style="font-family: times, serif; font-size:14pt;">Bienvenido <b>`+ nombre +`</b></div>
+    <button type="button" class="btn btn-primary btn-sm " >Cerrar sesion</button>
+</div>
+ 
+<br><br>
+
+
+<div class="container d-flex justify-content-end"><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalEditardatos">Modificar datos</button>
+</div>
+
+<p style="font-size: 20px;">Nombre: `+ nombre + `</p>
+<p style="font-size: 20px;">Apellido: `+ apellido + `</p>
+<p style="font-size: 20px;">Sexo: `+ sexo + `</p>
+<p style="font-size: 20px;">Nacimiento: `+ nacimiento + `</p>
+<p style="font-size: 20px;">Direccion: `+ direccion + `</p>
+<p style="font-size: 20px;">Estado civil: `+ estadocivil + `</p>
+<p style="font-size: 20px;">Correo: `+ correo + `</p>
+<p style="font-size: 20px;">Telefono: `+ telefono + `</p>
+
+<!-- Modal -->
+<div class="modal fade" id="modalEditardatos" tabindex="-1" role="dialog" aria-labelledby="modalEditardatosTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+  <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLongTitle">Modificar datos</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+        
+        <div class="form-group row">
+            <label for="firstName" class="text-center col-lg-3 col-form-label">Nombre</label>
+            <div class="col-lg-8">
+                <input type="firstName" class="form-control" id="firstName" value="`+ nombre + `" required>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="lastName" class="text-center col-lg-3 col-form-label">Apellido</label>
+            <div class="col-lg-8">
+                <input type="lastName" class="form-control" id="lastName" value="`+ apellido + `" required>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="sex" class="text-center col-lg-3 col-form-label">Sexo</label>
+            <div class="col-lg-5">
+                <select class="form-control" value="`+ sexo + `" id="sex">
+                    <option>Hombre</option>
+                    <option>Mujer</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="birthdate" class="text-center col-lg-3 col-form-label">Nacimiento</label>
+            <div class="col-lg-5">
+                <input id="birthdate" type="date" name="bday" max="2020-12-31" min="2019-09-26"
+                    class="form-control" value="`+ nacimiento + `" required>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="email" class="text-center col-lg-3 col-form-label" >Email</label>
+            <div class="col-lg-8">
+                <input type="email" class="form-control" id="email"
+                value="`+ correo + `" required>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="address" class="text-center col-lg-3 col-form-label">Direccion</label>
+            <div class="col-lg-8">
+                <input type="text" class="form-control" id="address" value="`+ direccion + `" 
+                    required>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="Martial status" class="text-center col-lg-3 col-form-label">Estado civil</label>
+            <div class="col-lg-4">
+                <select class="form-control" value="`+ estadocivil + `" id="martialStatus">
+                    <option>Soltero</option>
+                    <option>Casado</option>
+                    <option>Divorciado</option>
+                    <option>Viudo</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="phone" class="text-center col-lg-3 col-form-label">Celular</label>
+            <div class="col-lg-6">
+                <input type="tel" data-toggle="tooltip" data-placement="top"
+                    title="El celular ingresado debe seguir el siguiente modelo +549-(codigo local)-(7 digitos)"
+                    class="form-control" id="phone" name="phone" value="`+ telefono + `"  required>
+            </div>
+        </div>
+    
+
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Salir</button>
+    <button type="button" class="btn btn-primary" data-dismiss="modal" id="saveChanges">Guardar cambios</button>
+  </div>
+</div>
+</div>
+</div>
+`;
+})
 
 var profile = document.getElementById("profile").addEventListener('click', function () {
     var cliente = Usuario.getClientID();
@@ -131,8 +283,15 @@ var profile = document.getElementById("profile").addEventListener('click', funct
     var correo = users[cliente].email;
     var telefono = users[cliente].phone;
 
-    var profile1 = document.getElementById("content").innerHTML = `                <div class="user container">Bienvenido `+ nombre +`. Aqui vas a encontrar todo lo relacionado a tu cuenta.</div>
-<br><br>
+
+    var profile1 = document.getElementById("content").innerHTML = `                <br>
+    <div class="container d-flex justify-content-around">
+        <div class="user " style="font-family: times, serif; font-size:14pt;">Bienvenido <b>`+ nombre +`</b></div>
+        <button type="button" class="btn btn-primary btn-sm " >Cerrar sesion</button>
+    </div>
+     
+    <br><br>
+    
 <div class="container d-flex justify-content-end"><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalEditardatos">Modificar datos</button>
 </div>
 
@@ -229,16 +388,177 @@ var profile = document.getElementById("profile").addEventListener('click', funct
   </div>
 </div>
 `;
-    var saveChanges = document.getElementById("saveChanges").addEventListener('click', function () {
-        console.log("hol");
+var saveChanges = document.getElementById("saveChanges").addEventListener('click', function () {
+    var nuevonombre = document.getElementById("firstName").value;
+    var nuevoapellido = document.getElementById("lastName").value;
+    var nuevosexo = document.getElementById("sex").value;
+    var nuevonacimiento = document.getElementById("birthdate").value;
+    var nuevadireccion = document.getElementById("address").value;
+    var nuevoestadocivil = document.getElementById("lastName").value;
+    var nuevocorreo = document.getElementById("email").value;
+    var nuevotelefono = document.getElementById("phone").value;
+    var cliente2 = Usuario.getClientID();
+    var users = Client.getAll();
 
+    console.log(cliente2);
+    var nuevosDatos = {
+        username :  users[cliente2].username,
+        password : users[cliente2].password,
+        firstName : nuevonombre,
+        lastName : nuevoapellido,
+        sex : nuevosexo,
+        birthdate : nuevonacimiento,
+        address : nuevadireccion,
+        marrialStatus : nuevoestadocivil,
+        email : nuevocorreo,
+        phone : nuevotelefono
+    }
+    //console.log(nuevosDatos);
+    console.log(users);
+    var cambio = users.splice(cliente2,1,nuevosDatos);
+    localStorage.setItem("client", JSON.stringify(users));
+    
+    var cliente = Usuario.getClientID();
+    var users = Client.getAll();
+    var nombre = users[cliente].firstName;
+    var apellido = users[cliente].lastName;
+    var sexo = users[cliente].sex;
+    var nacimiento = users[cliente].birthdate;
+    var direccion = users[cliente].address;
+    var nacimiento = users[cliente].birthdate;
+    var estadocivil = users[cliente].martialStatus;
+    var correo = users[cliente].email;
+    var telefono = users[cliente].phone;
+    var profile1 = document.getElementById("content").innerHTML = `               <br>
+    <div class="container d-flex justify-content-around">
+        <div class="user " style="font-family: times, serif; font-size:14pt;">Bienvenido <b>`+ nombre +`</b></div>
+        <button type="button" class="btn btn-primary btn-sm " >Cerrar sesion</button>
+    </div>
+     
+    <br><br>
+    
+    
+    <div class="container d-flex justify-content-end"><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalEditardatos">Modificar datos</button>
+    </div>
+    
+    <p style="font-size: 20px;">Nombre: `+ nombre + `</p>
+    <p style="font-size: 20px;">Apellido: `+ apellido + `</p>
+    <p style="font-size: 20px;">Sexo: `+ sexo + `</p>
+    <p style="font-size: 20px;">Nacimiento: `+ nacimiento + `</p>
+    <p style="font-size: 20px;">Direccion: `+ direccion + `</p>
+    <p style="font-size: 20px;">Estado civil: `+ estadocivil + `</p>
+    <p style="font-size: 20px;">Correo: `+ correo + `</p>
+    <p style="font-size: 20px;">Telefono: `+ telefono + `</p>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="modalEditardatos" tabindex="-1" role="dialog" aria-labelledby="modalEditardatosTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modificar datos</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+            
+            <div class="form-group row">
+                <label for="firstName" class="text-center col-lg-3 col-form-label">Nombre</label>
+                <div class="col-lg-8">
+                    <input type="firstName" class="form-control" id="firstName" value="`+ nombre + `" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="lastName" class="text-center col-lg-3 col-form-label">Apellido</label>
+                <div class="col-lg-8">
+                    <input type="lastName" class="form-control" id="lastName" value="`+ apellido + `" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="sex" class="text-center col-lg-3 col-form-label">Sexo</label>
+                <div class="col-lg-5">
+                    <select class="form-control" value="`+ sexo + `" id="sex">
+                        <option>Hombre</option>
+                        <option>Mujer</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="birthdate" class="text-center col-lg-3 col-form-label">Nacimiento</label>
+                <div class="col-lg-5">
+                    <input id="birthdate" type="date" name="bday" max="2020-12-31" min="2019-09-26"
+                        class="form-control" value="`+ nacimiento + `" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="email" class="text-center col-lg-3 col-form-label" >Email</label>
+                <div class="col-lg-8">
+                    <input type="email" class="form-control" id="email"
+                    value="`+ correo + `" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="address" class="text-center col-lg-3 col-form-label">Direccion</label>
+                <div class="col-lg-8">
+                    <input type="text" class="form-control" id="address" value="`+ direccion + `" 
+                        required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="Martial status" class="text-center col-lg-3 col-form-label">Estado civil</label>
+                <div class="col-lg-4">
+                    <select class="form-control" value="`+ estadocivil + `" id="martialStatus">
+                        <option>Soltero</option>
+                        <option>Casado</option>
+                        <option>Divorciado</option>
+                        <option>Viudo</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="phone" class="text-center col-lg-3 col-form-label">Celular</label>
+                <div class="col-lg-6">
+                    <input type="tel" data-toggle="tooltip" data-placement="top"
+                        title="El celular ingresado debe seguir el siguiente modelo +549-(codigo local)-(7 digitos)"
+                        class="form-control" id="phone" name="phone" value="`+ telefono + `"  required>
+                </div>
+            </div>
+        
+    
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Salir</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" id="saveChanges">Guardar cambios</button>
+      </div>
+    </div>
+    </div>
+    </div>
+    `;
     })
 
 })
 
-var profile = document.getElementById("appointments").addEventListener('click', function () {
 
-    var profile1 = document.getElementById("content").innerHTML = `                <div class="user container">Bienvenido `+ nombre +`. Aqui vas a encontrar todo lo relacionado a tu cuenta.</div>
+var profile = document.getElementById("appointments").addEventListener('click', function () {
+    var cliente = Usuario.getClientID();
+    var users = Client.getAll();
+    var nombre = users[cliente].firstName;
+    var apellido = users[cliente].lastName;
+    var sexo = users[cliente].sex;
+    var nacimiento = users[cliente].birthdate;
+    var direccion = users[cliente].address;
+    var nacimiento = users[cliente].birthdate;
+    var estadocivil = users[cliente].martialStatus;
+    var correo = users[cliente].email;
+    var telefono = users[cliente].phone;
+    var profile1 = document.getElementById("content").innerHTML = `              <br>
+    <div class="container d-flex justify-content-around">
+        <div class="user " style="font-family: times, serif; font-size:14pt;">Bienvenido <b>`+ nombre +`</b></div>
+        <button type="button" class="btn btn-primary btn-sm " >Cerrar sesion</button>
+    </div>
+     
+    <br><br>
+    
     <form class="container">
         <div class="form-row">
             <div class="form-group col-md-3">
@@ -349,7 +669,6 @@ var profile = document.getElementById("appointments").addEventListener('click', 
             document.getElementById("profesional").setAttribute("class", "form-control is-valid");
         }
 
-
         if (hora == "Elegir...") {
             document.getElementById("hora").setAttribute("class", "form-control is-invalid");
         }
@@ -386,9 +705,26 @@ var profile = document.getElementById("appointments").addEventListener('click', 
     })
 })
 var profile = document.getElementById("history").addEventListener('click', function () {
-    console.log("Hola2");
-    var profile1 = document.getElementById("content").innerHTML = `       <div class="user container">Bienvenido `+ nombre +`. Aqui vas a encontrar todo lo relacionado a tu cuenta.</div>         
+
+    var cliente = Usuario.getClientID();
+    var users = Client.getAll();
+    var nombre = users[cliente].firstName;
+    var apellido = users[cliente].lastName;
+    var sexo = users[cliente].sex;
+    var nacimiento = users[cliente].birthdate;
+    var direccion = users[cliente].address;
+    var nacimiento = users[cliente].birthdate;
+    var estadocivil = users[cliente].martialStatus;
+    var correo = users[cliente].email;
+    var telefono = users[cliente].phone;
+    var profile1 = document.getElementById("content").innerHTML = `      <br>
+    <div class="container d-flex justify-content-around">
+        <div class="user " style="font-family: times, serif; font-size:14pt;">Bienvenido <b>`+ nombre +`</b></div>
+        <button type="button" class="btn btn-primary btn-sm " >Cerrar sesion</button>
+    </div>
+     
     <br><br>
+    
     <p class="text-center" style="font-size: 40px;">Historial clinico</p>
 
     <table class=" container table table-dark">
@@ -429,8 +765,25 @@ var profile = document.getElementById("history").addEventListener('click', funct
 `;
 })
 var profile = document.getElementById("doctors").addEventListener('click', function () {
-    console.log("Hola3");
-    var profile1 = document.getElementById("content").innerHTML = `                <div class="user container">Bienvenido `+ nombre +`. Aqui vas a encontrar todo lo relacionado a tu cuenta.</div>
+    var cliente = Usuario.getClientID();
+    var users = Client.getAll();
+    var nombre = users[cliente].firstName;
+    var apellido = users[cliente].lastName;
+    var sexo = users[cliente].sex;
+    var nacimiento = users[cliente].birthdate;
+    var direccion = users[cliente].address;
+    var nacimiento = users[cliente].birthdate;
+    var estadocivil = users[cliente].martialStatus;
+    var correo = users[cliente].email;
+    var telefono = users[cliente].phone;
+    var profile1 = document.getElementById("content").innerHTML = `              <br>
+    <div class="container d-flex justify-content-around">
+        <div class="user " style="font-family: times, serif; font-size:14pt;">Bienvenido <b>`+ nombre +`</b></div>
+        <button type="button" class="btn btn-primary btn-sm " >Cerrar sesion</button>
+    </div>
+     
+    <br><br>
+    
     <form class="container">
     <p class="text-center" style="font-size: 30px;">Ginecologia</p>
         <div class="container">
@@ -446,7 +799,7 @@ var profile = document.getElementById("doctors").addEventListener('click', funct
                     <img src="https://frasesdelavida.com/wp-content/uploads/2018/05/Frases-de-me%CC%81dicos.jpg" alt="Avatar" style="width:100%; height: 170px;">
                     <div class="container">
                     <h4><b>Valentina Juarez</b></h4>
-                    <p>Ginecologo</p>
+                    <p>Ginecologa</p>
                     </div>
                 </div>
                 <div class="col-3 card">
@@ -470,31 +823,31 @@ var profile = document.getElementById("doctors").addEventListener('click', funct
         <div class="container">
             <div class="row">
                 <div class="col-3 card">
-                    <img src="https://www.derechoenzapatillas.com/wp-content/uploads/2017/05/what-doctors-say2.jpg" alt="Avatar" style="width:100%; height: 170px;"">
+                    <img src="http://www.cosale.cl/wp-content/uploads/2017/05/doc1a.png" alt="Avatar" style="width:100%; height: 170px;"">
                     <div class="container">
-                    <h4><b>John Doe</b></h4>
-                    <p>Ginecologo</p>
+                    <h4><b>Facundo Velez</b></h4>
+                    <p>Traumatologo</p>
                     </div>
                 </div>
                 <div class="col-3 card">
                     <img src="http://argentinosenirlanda.ie/wp-content/uploads/2017/06/Trabajar-de-m%C3%A9dico-en-Irlanda.jpg" alt="Avatar" style="width:100%; height: 170px;">
                     <div class="container">
                     <h4><b>John Doe</b></h4>
-                    <p>Ginecologo</p>
+                    <p>Traumatologa</p>
                     </div>
                 </div>
                 <div class="col-3 card">
                     <img src="http://argentinosenirlanda.ie/wp-content/uploads/2017/06/Trabajar-de-m%C3%A9dico-en-Irlanda.jpg" alt="Avatar" style="width:100%; height: 170px;">
                     <div class="container">
                     <h4><b>John Doe</b></h4>
-                    <p>Ginecologo</p>
+                    <p>Traumatologo</p>
                     </div>
                 </div>
                 <div class="col-3 card">
                     <img src="https://www.derechoenzapatillas.com/wp-content/uploads/2017/05/what-doctors-say2.jpg" alt="Avatar" style="width:100%; height: 170px;">
                     <div class="container">
                     <h4><b>John Doe</b></h4>
-                    <p>Ginecologo</p>
+                    <p>Traumatologo</p>
                     </div>
                 </div>
             </div>
