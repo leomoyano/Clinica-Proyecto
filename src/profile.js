@@ -15,8 +15,10 @@ var estadocivil = users[cliente].martialStatus;
 var correo = users[cliente].email;
 var telefono = users[cliente].phone;
 
-var profile1 = document.getElementById("content").innerHTML = `                <div class="user container">Bienvenido `+ nombre +`. Aqui vas a encontrar todo lo relacionado a tu cuenta.</div>
+var profile1 = document.getElementById("content").innerHTML = `                <div class="user container">Bienvenido `+ nombre +`. <div class="container d-flex justify-content-end"><button type="button" class="btn btn-primary btn-sm" >Cerrar sesion</button>
+</div></div>
 <br><br>
+
 <div class="container d-flex justify-content-end"><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalEditardatos">Modificar datos</button>
 </div>
 
