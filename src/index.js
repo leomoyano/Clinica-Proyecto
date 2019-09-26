@@ -16,7 +16,7 @@ if(currentClient != null && currentClient != -1){
             <div class="col-xs-5 mr-3">
                 <span>${clients[currentClient].firstName[0].toUpperCase()+clients[currentClient].firstName.slice(1)}</span>
                 <span class="mr-3">${clients[currentClient].lastName[0].toUpperCase()+clients[currentClient].lastName.slice(1)}</span>
-                <a href="profile.html">Turnos</a>
+                <a href="profile.html" id="btnTurnos">Turnos</a>
                 <span>/</span>
                 <a id="closeClient" href="#">Cerrar sesión</a>
                 <!-- <span>/</span> -->

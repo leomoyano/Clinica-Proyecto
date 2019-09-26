@@ -2,21 +2,134 @@ import '../src/style/template.css';
 import Usuario from './Usuario';
 import Client from './Client';
 
-var profile1 = document.getElementById("content").addEventListener('click')
+var profile2 = document.getElementById("content").innerHTML = "Hola";
+var cliente = Usuario.getClientID();
+var users = Client.getAll();
+var nombre = users[cliente].firstName;
+var apellido = users[cliente].lastName;
+var sexo = users[cliente].sex;
+var nacimiento = users[cliente].birthdate;
+var direccion = users[cliente].address;
+var nacimiento = users[cliente].birthdate;
+var estadocivil = users[cliente].martialStatus;
+var correo = users[cliente].email;
+var telefono = users[cliente].phone;
+
+var profile1 = document.getElementById("content").innerHTML = `                <div class="user container">Bienvenido `+ nombre +`. Aqui vas a encontrar todo lo relacionado a tu cuenta.</div>
+<br><br>
+<div class="container d-flex justify-content-end"><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalEditardatos">Modificar datos</button>
+</div>
+
+<p style="font-size: 20px;">Nombre: `+ nombre + `</p>
+<p style="font-size: 20px;">Apellido: `+ apellido + `</p>
+<p style="font-size: 20px;">Sexo: `+ sexo + `</p>
+<p style="font-size: 20px;">Nacimiento: `+ nacimiento + `</p>
+<p style="font-size: 20px;">Direccion: `+ direccion + `</p>
+<p style="font-size: 20px;">Estado civil: `+ estadocivil + `</p>
+<p style="font-size: 20px;">Correo: `+ correo + `</p>
+<p style="font-size: 20px;">Telefono: `+ telefono + `</p>
+
+<!-- Modal -->
+<div class="modal fade" id="modalEditardatos" tabindex="-1" role="dialog" aria-labelledby="modalEditardatosTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+  <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLongTitle">Modificar datos</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+        
+        <div class="form-group row">
+            <label for="firstName" class="text-center col-lg-3 col-form-label">Nombre</label>
+            <div class="col-lg-8">
+                <input type="firstName" class="form-control" id="firstName" value="`+ nombre + `" required>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="lastName" class="text-center col-lg-3 col-form-label">Apellido</label>
+            <div class="col-lg-8">
+                <input type="lastName" class="form-control" id="lastName" value="`+ apellido + `" required>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="sex" class="text-center col-lg-3 col-form-label">Sexo</label>
+            <div class="col-lg-5">
+                <select class="form-control" value="`+ sexo + `" id="sex">
+                    <option>Hombre</option>
+                    <option>Mujer</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="birthdate" class="text-center col-lg-3 col-form-label">Nacimiento</label>
+            <div class="col-lg-5">
+                <input id="birthdate" type="date" name="bday" max="2020-12-31" min="2019-09-26"
+                    class="form-control" value="`+ nacimiento + `" required>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="email" class="text-center col-lg-3 col-form-label" >Email</label>
+            <div class="col-lg-8">
+                <input type="email" class="form-control" id="email"
+                value="`+ correo + `" required>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="address" class="text-center col-lg-3 col-form-label">Direccion</label>
+            <div class="col-lg-8">
+                <input type="text" class="form-control" id="address" value="`+ direccion + `" 
+                    required>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="Martial status" class="text-center col-lg-3 col-form-label">Estado civil</label>
+            <div class="col-lg-4">
+                <select class="form-control" value="`+ estadocivil + `" id="martialStatus">
+                    <option>Soltero</option>
+                    <option>Casado</option>
+                    <option>Divorciado</option>
+                    <option>Viudo</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="phone" class="text-center col-lg-3 col-form-label">Celular</label>
+            <div class="col-lg-6">
+                <input type="tel" data-toggle="tooltip" data-placement="top"
+                    title="El celular ingresado debe seguir el siguiente modelo +549-(codigo local)-(7 digitos)"
+                    class="form-control" id="phone" name="phone" value="`+ telefono + `"  required>
+            </div>
+        </div>
+    
+
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Salir</button>
+    <button type="button" class="btn btn-primary" data-dismiss="modal" id="saveChanges">Guardar cambios</button>
+  </div>
+</div>
+</div>
+</div>
+`;
+
+
 
 var profile = document.getElementById("profile").addEventListener('click', function () {
+    var cliente = Usuario.getClientID();
     var users = Client.getAll();
-    var nombre = users[0].firstName;
-    var apellido = users[0].lastName;
-    var sexo = users[0].sex;
-    var nacimiento = users[0].birthdate;
-    var direccion = users[0].address;
-    var nacimiento = users[0].birthdate;
-    var estadocivil = users[0].martialStatus;
-    var correo = users[0].email;
-    var telefono = users[0].phone;
+    var nombre = users[cliente].firstName;
+    var apellido = users[cliente].lastName;
+    var sexo = users[cliente].sex;
+    var nacimiento = users[cliente].birthdate;
+    var direccion = users[cliente].address;
+    var nacimiento = users[cliente].birthdate;
+    var estadocivil = users[cliente].martialStatus;
+    var correo = users[cliente].email;
+    var telefono = users[cliente].phone;
 
-    var profile1 = document.getElementById("content").innerHTML = `                <div class="user container">Usuario : sasdas</div>
+    var profile1 = document.getElementById("content").innerHTML = `                <div class="user container">Bienvenido `+ nombre +`. Aqui vas a encontrar todo lo relacionado a tu cuenta.</div>
 <br><br>
 <div class="container d-flex justify-content-end"><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalEditardatos">Modificar datos</button>
 </div>
@@ -114,18 +227,16 @@ var profile = document.getElementById("profile").addEventListener('click', funct
   </div>
 </div>
 `;
-    // var nombre = document.getElementById("1");
-    // console.log(nombre);
     var saveChanges = document.getElementById("saveChanges").addEventListener('click', function () {
-console.log("hol");
+        console.log("hol");
 
     })
 
 })
 
 var profile = document.getElementById("appointments").addEventListener('click', function () {
-    
-    var profile1 = document.getElementById("content").innerHTML = `                <div class="user container">Usuario : asdsasasdas</div>
+
+    var profile1 = document.getElementById("content").innerHTML = `                <div class="user container">Bienvenido `+ nombre +`. Aqui vas a encontrar todo lo relacionado a tu cuenta.</div>
     <form class="container">
         <div class="form-row">
             <div class="form-group col-md-3">
@@ -194,7 +305,7 @@ var profile = document.getElementById("appointments").addEventListener('click', 
     
     `;
     var btnturn = document.getElementById("btnturn").addEventListener('click', function () {
-        
+
         var turns = JSON.parse(localStorage.getItem("turns")) || [];
         console.log(turns);
         var area = document.getElementById("area").value;
@@ -205,83 +316,76 @@ var profile = document.getElementById("appointments").addEventListener('click', 
         var turnosConfirmados = document.getElementById("turnosConfirmados");
 
         var datosTurno = {
-            area : area,
-            profesional : profesional,
-            fecha : fecha,
+            area: area,
+            profesional: profesional,
+            fecha: fecha,
             hora: hora
         }
-       
 
-        
-        function funcion(item,index){
-            turnosConfirmados.innerHTML+= `<tr>
+
+
+        function funcion(item, index) {
+            turnosConfirmados.innerHTML += `<tr>
             <th scope="row">1</th>
-            <td>`+item.fecha+`</td>
-            <td>`+item.hora+`</td>
-            <td>`+item.area+`</td>
-            <td>`+item.profesional+`</td>
+            <td>`+ item.fecha + `</td>
+            <td>`+ item.hora + `</td>
+            <td>`+ item.area + `</td>
+            <td>`+ item.profesional + `</td>
           </tr>`;
         }
-        if(area == "Elegir...")
-        {
+        if (area == "Elegir...") {
             document.getElementById("area").setAttribute("class", "form-control is-invalid");
         }
-        else
-        {
+        else {
             document.getElementById("area").setAttribute("class", "form-control is-valid");
         }
 
-        if(profesional == "Elegir...")
-        {
+        if (profesional == "Elegir...") {
             document.getElementById("profesional").setAttribute("class", "form-control is-invalid");
         }
-        else
-        {
+        else {
             document.getElementById("profesional").setAttribute("class", "form-control is-valid");
         }
 
 
-        if(hora == "Elegir...")
-        {
+        if (hora == "Elegir...") {
             document.getElementById("hora").setAttribute("class", "form-control is-invalid");
         }
-        else
-        {
+        else {
             document.getElementById("hora").setAttribute("class", "form-control is-valid");
         }
 
-        if(area != "Elegir..." && profesional != "Elegir..." && hora != "Elegir...")
-        {            
+        if (area != "Elegir..." && profesional != "Elegir..." && hora != "Elegir...") {
             var r = confirm("Estas seguro que queres ese turno?");
-                if (r == true) {
-                  alert("Turno agendado!")
-                  turns.push(datosTurno);   
-                  localStorage.setItem("turns", JSON.stringify(turns));
-                  turnosConfirmados.innerHTML='';
-                  turns.forEach(funcion);
-                } 
+            if (r == true) {
+                alert("Turno agendado!")
+                turns.push(datosTurno);
+                localStorage.setItem("turns", JSON.stringify(turns));
+                turnosConfirmados.innerHTML = '';
+                turns.forEach(funcion);
+            }
 
         }
     })
-    var btnViewTurns = document.getElementById("btnViewTurns").addEventListener('click',function(){
+    var btnViewTurns = document.getElementById("btnViewTurns").addEventListener('click', function () {
         var turns = JSON.parse(localStorage.getItem("turns")) || [];
-        turnosConfirmados.innerHTML='';    
+        turnosConfirmados.innerHTML = '';
         turns.forEach(funcion);
-            
-        function funcion(item,index){
-            turnosConfirmados.innerHTML+= `<tr>
+
+        function funcion(item, index) {
+            turnosConfirmados.innerHTML += `<tr>
             <th scope="row">1</th>
-            <td>`+item.fecha+`</td>
-            <td>`+item.hora+`</td>
-            <td>`+item.area+`</td>
-            <td>`+item.profesional+`</td>
+            <td>`+ item.fecha + `</td>
+            <td>`+ item.hora + `</td>
+            <td>`+ item.area + `</td>
+            <td>`+ item.profesional + `</td>
           </tr>`;
         }
     })
 })
 var profile = document.getElementById("history").addEventListener('click', function () {
     console.log("Hola2");
-    var profile1 = document.getElementById("content").innerHTML = `                
+    var profile1 = document.getElementById("content").innerHTML = `       <div class="user container">Bienvenido `+ nombre +`. Aqui vas a encontrar todo lo relacionado a tu cuenta.</div>         
     <br><br>
     <p class="text-center" style="font-size: 40px;">Historial clinico</p>
 
@@ -324,7 +428,7 @@ var profile = document.getElementById("history").addEventListener('click', funct
 })
 var profile = document.getElementById("doctors").addEventListener('click', function () {
     console.log("Hola3");
-    var profile1 = document.getElementById("content").innerHTML = `                <div class="user container">Usuario : asdsasasdas</div>
+    var profile1 = document.getElementById("content").innerHTML = `                <div class="user container">Bienvenido `+ nombre +`. Aqui vas a encontrar todo lo relacionado a tu cuenta.</div>
     <form class="container">
     <p class="text-center" style="font-size: 30px;">Ginecologia</p>
         <div class="container">
@@ -332,28 +436,28 @@ var profile = document.getElementById("doctors").addEventListener('click', funct
                 <div class="col-3 card">
                     <img src="https://www.derechoenzapatillas.com/wp-content/uploads/2017/05/what-doctors-say2.jpg" alt="Avatar" style="width:100%; height: 170px;">
                     <div class="container">
-                    <h4><b>John Doe</b></h4>
+                    <h4><b>Juan Lopez</b></h4>
                     <p>Ginecologo</p>
                     </div>
                 </div>
                 <div class="col-3 card">
-                    <img src="https://www.derechoenzapatillas.com/wp-content/uploads/2017/05/what-doctors-say2.jpg" alt="Avatar" style="width:100%; height: 170px;">
+                    <img src="https://frasesdelavida.com/wp-content/uploads/2018/05/Frases-de-me%CC%81dicos.jpg" alt="Avatar" style="width:100%; height: 170px;">
                     <div class="container">
-                    <h4><b>John Doe</b></h4>
+                    <h4><b>Valentina Juarez</b></h4>
                     <p>Ginecologo</p>
                     </div>
                 </div>
                 <div class="col-3 card">
-                    <img src="https://www.derechoenzapatillas.com/wp-content/uploads/2017/05/what-doctors-say2.jpg" alt="Avatar" style="width:100%; height: 170px;">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKRtSYf8nJyV1anMHpeRsW_0v-XJTrjqB7P3zy_tSJevFG-GgmQA" alt="Avatar" style="width:100%; height: 170px;">
                     <div class="container">
-                    <h4><b>John Doe</b></h4>
+                    <h4><b>Marcos Teran</b></h4>
                     <p>Ginecologo</p>
                     </div>
                 </div>
                 <div class="col-3 card">
-                    <img src="https://www.derechoenzapatillas.com/wp-content/uploads/2017/05/what-doctors-say2.jpg" alt="Avatar" style="width:100%; height: 170px;">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcoxmKYtWOXlF_5G-K8E8DlGDxVVbAG9alJywfvunIKZlbvPE7ag" alt="Avatar" style="width:100%; height: 170px;">
                     <div class="container">
-                    <h4><b>John Doe</b></h4>
+                    <h4><b>Facundo Gimenez</b></h4>
                     <p>Ginecologo</p>
                     </div>
                 </div>
