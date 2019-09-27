@@ -14,11 +14,7 @@ var estadocivil = users[cliente].martialStatus;
 var correo = users[cliente].email;
 var telefono = users[cliente].phone;
 
-<<<<<<< HEAD
-var profile1 = document.getElementById("content").innerHTML = `                <div class="user container font-weight-bold">Bienvenido `+ nombre.toUpperCase() +`. <div class="container d-flex justify-content-end"><button type="button" class="btn btn-primary btn-sm" id="btnCerrarSesion">Cerrar sesion</button>
-=======
-var profile1 = document.getElementById("content").innerHTML = `                <div class="col-6 user container font-weight-bold">Bienvenido `+ nombre.toUpperCase() +`. <div class="container d-flex justify-content-end"><button type="button" class="btn btn-danger btn-sm" >Cerrar sesión</button>
->>>>>>> Fix
+var profile1 = document.getElementById("content").innerHTML = `                <div class="col-6 user container font-weight-bold">Bienvenido `+ nombre.toUpperCase() +`. <div class="container d-flex justify-content-end"><button type="button" class="btn btn-danger btn-sm" id="btnCerrarSesion">Cerrar sesión</button>
 </div></div>
 <br><br>
 
@@ -291,17 +287,8 @@ var profile = document.getElementById("profile").addEventListener('click', funct
     var telefono = users[cliente].phone;
 
 
-<<<<<<< HEAD
-    var profile1 = document.getElementById("content").innerHTML = `                <br>
-    <div class="container d-flex justify-content-around">
-        <div class="user " style="font-family: times, serif; font-size:14pt;">Bienvenido <b>`+ nombre +`</b></div>
-        <button type="button" class="btn btn-primary btn-sm "id="btnCerrarSesion2" >Cerrar sesion</button>
-    </div>
-     
-=======
-    var profile1 = document.getElementById("content").innerHTML = `               <div class="col-6 user container font-weight-bold">Bienvenido `+ nombre.toUpperCase() +`. <div class="container d-flex justify-content-end"><button type="button" class="btn btn-danger btn-sm" >Cerrar sesión</button>
+    var profile1 = document.getElementById("content").innerHTML = `               <div class="col-6 user container font-weight-bold">Bienvenido `+ nombre.toUpperCase() +`. <div class="container d-flex justify-content-end"><button type="button" class="btn btn-danger btn-sm" id="btnCerrarSesion2" >Cerrar sesión</button>
     </div></div>
->>>>>>> Fix
     <br><br>
     
     <div class="container d-flex justify-content-end"><button type="button" class="btn btn-info radius btn-sm" data-toggle="modal" data-target="#modalEditardatos">Modificar datos</button>
@@ -446,17 +433,8 @@ var saveChanges = document.getElementById("saveChanges").addEventListener('click
     var estadocivil = users[cliente].martialStatus;
     var correo = users[cliente].email;
     var telefono = users[cliente].phone;
-<<<<<<< HEAD
-    var profile1 = document.getElementById("content").innerHTML = `               <br>
-    <div class="container d-flex justify-content-around">
-        <div class="user " style="font-family: times, serif; font-size:14pt;">Bienvenido <b>`+ nombre +`</b></div>
-        <button type="button" class="btn btn-primary btn-sm" id='btnCerrarSesion2' >Cerrar sesion</button>
-    </div>
-     
-=======
-    var profile1 = document.getElementById("content").innerHTML = `<div class="col-6 user container font-weight-bold">Bienvenido `+ nombre.toUpperCase() +`. <div class="container d-flex justify-content-end"><button type="button" class="btn btn-danger btn-sm" >Cerrar sesión</button>
+    var profile1 = document.getElementById("content").innerHTML = `<div class="col-6 user container font-weight-bold">Bienvenido `+ nombre.toUpperCase() +`. <div class="container d-flex justify-content-end"><button type="button" class="btn btn-danger btn-sm" id='btnCerrarSesion2' >Cerrar sesión</button>
     </div></div>
->>>>>>> Fix
     <br><br>
     
     
@@ -582,17 +560,8 @@ var profile = document.getElementById("appointments").addEventListener('click', 
     var estadocivil = users[cliente].martialStatus;
     var correo = users[cliente].email;
     var telefono = users[cliente].phone;
-<<<<<<< HEAD
-    var profile1 = document.getElementById("content").innerHTML = `              <br>
-    <div class="container d-flex justify-content-around">
-        <div class="user " style="font-family: times, serif; font-size:14pt;">Bienvenido <b>`+ nombre +`</b></div>
-        <button type="button" class="btn btn-primary btn-sm " id='btnCerrarSesion3' >Cerrar sesion</button>
-    </div>
-     
-=======
-    var profile1 = document.getElementById("content").innerHTML = ` <div class="col-6 user container font-weight-bold">Bienvenido `+ nombre.toUpperCase() +`. <div class="container d-flex justify-content-end"><button type="button" class="btn btn-danger btn-sm" >Cerrar sesión</button>
+    var profile1 = document.getElementById("content").innerHTML = ` <div class="col-6 user container font-weight-bold">Bienvenido `+ nombre.toUpperCase() +`. <div class="container d-flex justify-content-end"><button type="button" class="btn btn-danger btn-sm"id='btnCerrarSesion2' >Cerrar sesión</button>
     </div></div>
->>>>>>> Fix
     <br><br>
     
     <form class="container">
@@ -761,17 +730,8 @@ var profile = document.getElementById("history").addEventListener('click', funct
     var estadocivil = users[cliente].martialStatus;
     var correo = users[cliente].email;
     var telefono = users[cliente].phone;
-<<<<<<< HEAD
-    var profile1 = document.getElementById("content").innerHTML = `      <br>
-    <div class="container d-flex justify-content-around">
-        <div class="user " style="font-family: times, serif; font-size:14pt;">Bienvenido <b>`+ nombre +`</b></div>
-        <button type="button" class="btn btn-primary btn-sm " id='btnCerrarSesion4'>Cerrar sesion</button>
-    </div>
-     
-=======
-    var profile1 = document.getElementById("content").innerHTML = ` <div class="col-6 user container font-weight-bold">Bienvenido `+ nombre.toUpperCase() +`. <div class="container d-flex justify-content-end"><button type="button" class="btn btn-danger btn-sm" >Cerrar sesión</button>
+    var profile1 = document.getElementById("content").innerHTML = ` <div class="col-6 user container font-weight-bold">Bienvenido `+ nombre.toUpperCase() +`. <div class="container d-flex justify-content-end"><button type="button" class="btn btn-danger btn-sm"id='btnCerrarSesion4' >Cerrar sesión</button>
     </div></div>
->>>>>>> Fix
     <br><br>
     
     <p class="text-center" style="font-size: 40px;">Historial clinico</p>
@@ -833,17 +793,8 @@ var profile = document.getElementById("doctors").addEventListener('click', funct
     var estadocivil = users[cliente].martialStatus;
     var correo = users[cliente].email;
     var telefono = users[cliente].phone;
-<<<<<<< HEAD
-    var profile1 = document.getElementById("content").innerHTML = `              <br>
-    <div class="container d-flex justify-content-around">
-        <div class="user " style="font-family: times, serif; font-size:14pt;">Bienvenido <b>`+ nombre +`</b></div>
-        <button type="button" class="btn btn-primary btn-sm " id='btnCerrarSesion5' >Cerrar sesion</button>
-    </div>
-     
-=======
-    var profile1 = document.getElementById("content").innerHTML = `<div class="col-6 user container font-weight-bold">Bienvenido `+ nombre.toUpperCase() +`. <div class="container d-flex justify-content-end"><button type="button" class="btn btn-danger btn-sm" >Cerrar sesión</button>
+    var profile1 = document.getElementById("content").innerHTML = `<div class="col-6 user container font-weight-bold">Bienvenido `+ nombre.toUpperCase() +`. <div class="container d-flex justify-content-end"><button type="button" class="btn btn-danger btn-sm"id='btnCerrarSesion5' >Cerrar sesión</button>
     </div></div>
->>>>>>> Fix
     <br><br>
     
     <form class="container">
