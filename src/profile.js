@@ -21,14 +21,14 @@ var profile1 = document.getElementById("content").innerHTML = `                <
 <div class="container d-flex justify-content-end"><button type="button" class="btn btn-info radius btn-sm" data-toggle="modal" data-target="#modalEditardatos">Modificar datos</button>
 </div>
 
-<p style="font-size: 20px;">Nombre: `+ nombre.toUpperCase() + `</p>
-<p style="font-size: 20px;">Apellido: `+ apellido.toUpperCase() + `</p>
-<p style="font-size: 20px;">Sexo: `+ sexo + `</p>
-<p style="font-size: 20px;">Nacimiento: `+ nacimiento + `</p>
-<p style="font-size: 20px;">Direccion: `+ direccion + `</p>
-<p style="font-size: 20px;">Estado civil: `+ estadocivil + `</p>
-<p style="font-size: 20px;">Correo: `+ correo + `</p>
-<p style="font-size: 20px;">Telefono: `+ telefono + `</p>
+<p style="font-size: 20px;"><strong>Nombre:</strong> `+ nombre.toUpperCase() + `</p>
+<p style="font-size: 20px;"><strong>Apellido:</strong> `+ apellido.toUpperCase() + `</p>
+<p style="font-size: 20px;"><strong>Sexo:</strong> `+ sexo + `</p>
+<p style="font-size: 20px;"><strong>Nacimiento:</strong> `+ nacimiento + `</p>
+<p style="font-size: 20px;"><strong>Direccion:</strong> `+ direccion + `</p>
+<p style="font-size: 20px;"><strong>Estado civil:</strong> `+ estadocivil + `</p>
+<p style="font-size: 20px;"><strong>Correo:</strong> `+ correo + `</p>
+<p style="font-size: 20px;"><strong>Telefono:</strong> `+ telefono + `</p>
 
 <!-- Modal -->
 <div class="modal fade" id="modalEditardatos" tabindex="-1" role="dialog" aria-labelledby="modalEditardatosTitle" aria-hidden="true">
