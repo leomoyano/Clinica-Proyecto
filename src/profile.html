@@ -30,6 +30,7 @@
         }
 
         .sidenav {
+            border-top-right-radius: 15px;
             border-bottom-right-radius: 15px;
         }
 
@@ -38,11 +39,19 @@
             display: block;
             padding: 15px 10px 20px 20px;
             text-decoration: none;
+            font-size: 20px;
+        }
+
+        .sidenav-header a {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: bold;
             font-size: 25px;
+            margin: auto;
         }
 
         .sidenav a:hover {
             color: #f1f1f1;
+
         }
 
         .user {
@@ -82,13 +91,10 @@
 <body>
     <div class="container-fluid">
         <div class="row">
-            <div class="sidenav col-2">
+            <div class="sidenav col-2 mt-5">
                 <div class="flex-column">
-                    <div id="sidebar" class="sidenav-header">
-                        <a href="index.html">
-                            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/e/ef/2019_Rugby_World_Cup_%28logo%29.svg/1200px-2019_Rugby_World_Cup_%28logo%29.svg.png"
-                                style="height: 100px;">
-                        </a>
+                    <div id="sidebar" class="sidenav-header logo">
+                        <a href="index.html" class="text-center">RolllingClinic </a>
                     </div>
                     <a href="#" id="profile">Perfil</a>
                     <a href="#" id="appointments">Turnos</a>
@@ -96,10 +102,8 @@
                     <a href="#" id="doctors">Doctores</a>
 
                 </div>
-
             </div>
             <div class="b col-10" id="content">
-         
             </div>
         </div>
         <!-- Footer -->
