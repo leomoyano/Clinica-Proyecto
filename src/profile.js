@@ -14,7 +14,7 @@ var estadocivil = users[cliente].martialStatus;
 var correo = users[cliente].email;
 var telefono = users[cliente].phone;
 
-var profile1 = document.getElementById("content").innerHTML = `                <div class="user container font-weight-bold">Bienvenido `+ nombre.toUpperCase() +`. <div class="container d-flex justify-content-end"><button type="button" class="btn btn-primary btn-sm" >Cerrar sesion</button>
+var profile1 = document.getElementById("content").innerHTML = `                <div class="user container font-weight-bold">Bienvenido `+ nombre.toUpperCase() +`. <div class="container d-flex justify-content-end"><button type="button" class="btn btn-primary btn-sm" id="btnCerrarSesion">Cerrar sesion</button>
 </div></div>
 <br><br>
 
@@ -115,13 +115,18 @@ var profile1 = document.getElementById("content").innerHTML = `                <
 </div>
 `;
 
+document.getElementById('btnCerrarSesion').addEventListener('click', function(){
+    Usuario.setClientID(-1);
+    location.href = "index.html";
+});
+
 var saveChanges = document.getElementById("saveChanges").addEventListener('click', function () {
     var nuevonombre = document.getElementById("firstName").value;
     var nuevoapellido = document.getElementById("lastName").value;
     var nuevosexo = document.getElementById("sex").value;
     var nuevonacimiento = document.getElementById("birthdate").value;
     var nuevadireccion = document.getElementById("address").value;
-    var nuevoestadocivil = document.getElementById("lastName").value;
+    var nuevoestadocivil = document.getElementById("martialStatus").value;
     var nuevocorreo = document.getElementById("email").value;
     var nuevotelefono = document.getElementById("phone").value;
     var cliente2 = Usuario.getClientID();
@@ -141,10 +146,7 @@ var saveChanges = document.getElementById("saveChanges").addEventListener('click
         phone : nuevotelefono
     }
     //console.log(nuevosDatos);
-
-
-var cambio = users.splice(cliente2,1,nuevosDatos);
-localStorage.setItem("client", JSON.stringify(users));
+    Usuario.editClient(nuevosDatos);
 
 var cliente = Usuario.getClientID();
 var users = Client.getAll();
@@ -160,7 +162,7 @@ var telefono = users[cliente].phone;
 var profile1 = document.getElementById("content").innerHTML = `          <br>
 <div class="container d-flex justify-content-around">
     <div class="user " style="font-family: times, serif; font-size:14pt;">Bienvenido <b>`+ nombre +`</b></div>
-    <button type="button" class="btn btn-primary btn-sm " >Cerrar sesion</button>
+    <button type="button" class="btn btn-primary btn-sm " id='btnCerrarSesion'>Cerrar sesion</button>
 </div>
  
 <br><br>
@@ -262,8 +264,16 @@ var profile1 = document.getElementById("content").innerHTML = `          <br>
 </div>
 </div>
 `;
+
+document.getElementById('btnCerrarSesion').addEventListener('click', function(){
+    Usuario.setClientID(-1);
+    location.href = "index.html";
+});
+
 })
 
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 var profile = document.getElementById("profile").addEventListener('click', function () {
     var cliente = Usuario.getClientID();
     var users = Client.getAll();
@@ -272,7 +282,6 @@ var profile = document.getElementById("profile").addEventListener('click', funct
     var sexo = users[cliente].sex;
     var nacimiento = users[cliente].birthdate;
     var direccion = users[cliente].address;
-    var nacimiento = users[cliente].birthdate;
     var estadocivil = users[cliente].martialStatus;
     var correo = users[cliente].email;
     var telefono = users[cliente].phone;
@@ -281,7 +290,7 @@ var profile = document.getElementById("profile").addEventListener('click', funct
     var profile1 = document.getElementById("content").innerHTML = `                <br>
     <div class="container d-flex justify-content-around">
         <div class="user " style="font-family: times, serif; font-size:14pt;">Bienvenido <b>`+ nombre +`</b></div>
-        <button type="button" class="btn btn-primary btn-sm " >Cerrar sesion</button>
+        <button type="button" class="btn btn-primary btn-sm "id="btnCerrarSesion2" >Cerrar sesion</button>
     </div>
      
     <br><br>
@@ -382,13 +391,19 @@ var profile = document.getElementById("profile").addEventListener('click', funct
   </div>
 </div>
 `;
+
+document.getElementById('btnCerrarSesion2').addEventListener('click', function(){
+    Usuario.setClientID(-1);
+    location.href = "index.html";
+});
+/********************************************************************************************************/
 var saveChanges = document.getElementById("saveChanges").addEventListener('click', function () {
     var nuevonombre = document.getElementById("firstName").value;
     var nuevoapellido = document.getElementById("lastName").value;
     var nuevosexo = document.getElementById("sex").value;
     var nuevonacimiento = document.getElementById("birthdate").value;
     var nuevadireccion = document.getElementById("address").value;
-    var nuevoestadocivil = document.getElementById("lastName").value;
+    var nuevoestadocivil = document.getElementById("martialStatus").value;
     var nuevocorreo = document.getElementById("email").value;
     var nuevotelefono = document.getElementById("phone").value;
     var cliente2 = Usuario.getClientID();
@@ -409,8 +424,7 @@ var saveChanges = document.getElementById("saveChanges").addEventListener('click
     }
     //console.log(nuevosDatos);
     console.log(users);
-    var cambio = users.splice(cliente2,1,nuevosDatos);
-    localStorage.setItem("client", JSON.stringify(users));
+    Usuario.editClient(nuevosDatos);
     
     var cliente = Usuario.getClientID();
     var users = Client.getAll();
@@ -426,7 +440,7 @@ var saveChanges = document.getElementById("saveChanges").addEventListener('click
     var profile1 = document.getElementById("content").innerHTML = `               <br>
     <div class="container d-flex justify-content-around">
         <div class="user " style="font-family: times, serif; font-size:14pt;">Bienvenido <b>`+ nombre +`</b></div>
-        <button type="button" class="btn btn-primary btn-sm " >Cerrar sesion</button>
+        <button type="button" class="btn btn-primary btn-sm" id='btnCerrarSesion2' >Cerrar sesion</button>
     </div>
      
     <br><br>
@@ -528,11 +542,21 @@ var saveChanges = document.getElementById("saveChanges").addEventListener('click
     </div>
     </div>
     `;
+
+    document.getElementById('btnCerrarSesion2').addEventListener('click', function(){
+        Usuario.setClientID(-1);
+        location.href = "index.html";
+    });
+
     })
 
+    
+
 })
+/********************************************************************************************************/
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 var profile = document.getElementById("appointments").addEventListener('click', function () {
     var cliente = Usuario.getClientID();
     var users = Client.getAll();
@@ -541,14 +565,13 @@ var profile = document.getElementById("appointments").addEventListener('click', 
     var sexo = users[cliente].sex;
     var nacimiento = users[cliente].birthdate;
     var direccion = users[cliente].address;
-    var nacimiento = users[cliente].birthdate;
     var estadocivil = users[cliente].martialStatus;
     var correo = users[cliente].email;
     var telefono = users[cliente].phone;
     var profile1 = document.getElementById("content").innerHTML = `              <br>
     <div class="container d-flex justify-content-around">
         <div class="user " style="font-family: times, serif; font-size:14pt;">Bienvenido <b>`+ nombre +`</b></div>
-        <button type="button" class="btn btn-primary btn-sm " >Cerrar sesion</button>
+        <button type="button" class="btn btn-primary btn-sm " id='btnCerrarSesion3' >Cerrar sesion</button>
     </div>
      
     <br><br>
@@ -620,6 +643,12 @@ var profile = document.getElementById("appointments").addEventListener('click', 
 </table>
     
     `;
+
+    document.getElementById('btnCerrarSesion3').addEventListener('click', function(){
+        Usuario.setClientID(-1);
+        location.href = "index.html";
+    });
+
     var btnturn = document.getElementById("btnturn").addEventListener('click', function () {
 
         var turns = JSON.parse(localStorage.getItem("turns")) || [];
@@ -698,6 +727,8 @@ var profile = document.getElementById("appointments").addEventListener('click', 
         }
     })
 })
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
 var profile = document.getElementById("history").addEventListener('click', function () {
 
     var cliente = Usuario.getClientID();
@@ -714,7 +745,7 @@ var profile = document.getElementById("history").addEventListener('click', funct
     var profile1 = document.getElementById("content").innerHTML = `      <br>
     <div class="container d-flex justify-content-around">
         <div class="user " style="font-family: times, serif; font-size:14pt;">Bienvenido <b>`+ nombre +`</b></div>
-        <button type="button" class="btn btn-primary btn-sm " >Cerrar sesion</button>
+        <button type="button" class="btn btn-primary btn-sm " id='btnCerrarSesion4'>Cerrar sesion</button>
     </div>
      
     <br><br>
@@ -757,7 +788,15 @@ var profile = document.getElementById("history").addEventListener('click', funct
   </tbody>
 </table>
 `;
+
+document.getElementById('btnCerrarSesion4').addEventListener('click', function(){
+    Usuario.setClientID(-1);
+    location.href = "index.html";
+});
+
 })
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 var profile = document.getElementById("doctors").addEventListener('click', function () {
     var cliente = Usuario.getClientID();
     var users = Client.getAll();
@@ -773,7 +812,7 @@ var profile = document.getElementById("doctors").addEventListener('click', funct
     var profile1 = document.getElementById("content").innerHTML = `              <br>
     <div class="container d-flex justify-content-around">
         <div class="user " style="font-family: times, serif; font-size:14pt;">Bienvenido <b>`+ nombre +`</b></div>
-        <button type="button" class="btn btn-primary btn-sm " >Cerrar sesion</button>
+        <button type="button" class="btn btn-primary btn-sm " id='btnCerrarSesion5' >Cerrar sesion</button>
     </div>
      
     <br><br>
@@ -919,9 +958,10 @@ var profile = document.getElementById("doctors").addEventListener('click', funct
     
     `;
 
+    document.getElementById('btnCerrarSesion5').addEventListener('click', function(){
+        Usuario.setClientID(-1);
+        location.href = "index.html";
+    });
 
-})
-var profile = document.getElementById("familiargroup").addEventListener('click', function () {
-    console.log("Hola4");
 })
 
