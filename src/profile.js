@@ -15,15 +15,15 @@ var estadocivil = users[cliente].martialStatus;
 var correo = users[cliente].email;
 var telefono = users[cliente].phone;
 
-var profile1 = document.getElementById("content").innerHTML = `                <div class="user container">Bienvenido `+ nombre +`. <div class="container d-flex justify-content-end"><button type="button" class="btn btn-primary btn-sm" >Cerrar sesion</button>
+var profile1 = document.getElementById("content").innerHTML = `                <div class="user container font-weight-bold">Bienvenido `+ nombre.toUpperCase() +`. <div class="container d-flex justify-content-end"><button type="button" class="btn btn-primary btn-sm" >Cerrar sesion</button>
 </div></div>
 <br><br>
 
-<div class="container d-flex justify-content-end"><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalEditardatos">Modificar datos</button>
+<div class="container d-flex justify-content-end"><button type="button" class="btn btn-info radius btn-sm" data-toggle="modal" data-target="#modalEditardatos">Modificar datos</button>
 </div>
 
-<p style="font-size: 20px;">Nombre: `+ nombre + `</p>
-<p style="font-size: 20px;">Apellido: `+ apellido + `</p>
+<p style="font-size: 20px;">Nombre: `+ nombre.toUpperCase() + `</p>
+<p style="font-size: 20px;">Apellido: `+ apellido.toUpperCase() + `</p>
 <p style="font-size: 20px;">Sexo: `+ sexo + `</p>
 <p style="font-size: 20px;">Nacimiento: `+ nacimiento + `</p>
 <p style="font-size: 20px;">Direccion: `+ direccion + `</p>
