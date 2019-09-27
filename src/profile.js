@@ -560,7 +560,7 @@ var profile = document.getElementById("appointments").addEventListener('click', 
     var estadocivil = users[cliente].martialStatus;
     var correo = users[cliente].email;
     var telefono = users[cliente].phone;
-    var profile1 = document.getElementById("content").innerHTML = ` <div class="col-6 user container font-weight-bold">Bienvenido `+ nombre.toUpperCase() +`. <div class="container d-flex justify-content-end"><button type="button" class="btn btn-danger btn-sm"id='btnCerrarSesion2' >Cerrar sesión</button>
+    var profile1 = document.getElementById("content").innerHTML = ` <div class="col-6 user container font-weight-bold">Bienvenido `+ nombre.toUpperCase() +`. <div class="container d-flex justify-content-end"><button type="button" class="btn btn-danger btn-sm" id='btnCerrarSesion3' >Cerrar sesión</button>
     </div></div>
     <br><br>
     
@@ -610,7 +610,6 @@ var profile = document.getElementById("appointments").addEventListener('click', 
 </div>
         </div>
         <button type="" class="btn btn-primary" id="btnturn">Sacar turno</button>
-        <button type="" class="btn btn-primary" id="btnViewTurns">Ver mis turnos</button>
     </form>
     <br><br>
     <table class=" container table table-dark">
@@ -621,6 +620,7 @@ var profile = document.getElementById("appointments").addEventListener('click', 
       <th scope="col">Hora</th>
       <th scope="col">Area</th>
       <th scope="col">Medico</th>
+      <th scope="col">Eliminar</th>
     </tr>
   </thead>
   <tbody id="turnosConfirmados">
@@ -659,11 +659,12 @@ var profile = document.getElementById("appointments").addEventListener('click', 
 
         function funcion(item, index) {
             turnosConfirmados.innerHTML += `<tr>
-            <th scope="row">1</th>
+            <th scope="row">${index + 1}</th>
             <td>`+ item.fecha + `</td>
             <td>`+ item.hora + `</td>
             <td>`+ item.area + `</td>
             <td>`+ item.profesional + `</td>
+            <td><button type="button" class="btn btn-danger btn-sm" id="btnBorrar${index}">Borrar</button></td>
           </tr>`;
         }
         if (area == "Elegir...") {
@@ -699,21 +700,33 @@ var profile = document.getElementById("appointments").addEventListener('click', 
 
         }
     })
-    var btnViewTurns = document.getElementById("btnViewTurns").addEventListener('click', function () {
-        var turns = JSON.parse(localStorage.getItem("turns")) || [];
-        turnosConfirmados.innerHTML = '';
+
+    var turns = JSON.parse(localStorage.getItem("turns")) || [];
+
+    turnosConfirmados.innerHTML = '';
         turns.forEach(funcion);
 
         function funcion(item, index) {
             turnosConfirmados.innerHTML += `<tr>
-            <th scope="row">1</th>
+            <th scope="row">${index + 1}</th>
             <td>`+ item.fecha + `</td>
             <td>`+ item.hora + `</td>
             <td>`+ item.area + `</td>
             <td>`+ item.profesional + `</td>
+            <td><button type="button" class="btn btn-danger btn-sm" id="btnBorrar${index}">Borrar</button></td>
           </tr>`;
+
+          setTimeout(function(){
+            document.getElementById('btnBorrar' + index).addEventListener('click',function(){
+                turns.splice(index,1);
+                localStorage.setItem("turns", JSON.stringify(turns));
+                turnosConfirmados.innerHTML = '';
+                turns.forEach(funcion);
+            });
+          },0);
+
         }
-    })
+
 })
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -742,7 +755,7 @@ var profile = document.getElementById("history").addEventListener('click', funct
       <th scope="col">#</th>
       <th scope="col">Dia</th>
       <th scope="col">Hora</th>
-      <th scope="col">Opcion??</th>
+      <th scope="col">Opcion</th>
       <th scope="col">Medico</th>
     </tr>
   </thead>
